@@ -10,6 +10,11 @@ namespace e_apartments_app.db.dao
 {
     internal class CustomerDao : SuperDao<CustomerModel>
     {
+        public override void Add(CustomerModel model)
+        {
+            throw new NotImplementedException();
+        }
+
         public override List<CustomerModel> getAll()
         {
             List<CustomerModel> list = new List<CustomerModel>();
@@ -48,11 +53,21 @@ namespace e_apartments_app.db.dao
 
         public override void update(string id, CustomerModel model)
         {
-            try {
-                
-            }catch(Exception e)
+            try
             {
-
+                DbController dbController = new DbController();
+                dbController.init();
+                dbController.runQuery("update Customers set name = " +
+                    model.Name + ", username = " + model.Username + ", password = " + model.Password +
+                    "address = " + model.Address +
+                    "NIC = " + model.NIC1 +
+                    "contactDetails = " + model.ContactDetails +
+                   " where cID = " + model.CID + ";");
+                dbController.closeConnection();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Exception: " + e);
             }
         }
     }

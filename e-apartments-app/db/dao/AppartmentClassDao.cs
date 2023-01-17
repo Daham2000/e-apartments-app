@@ -91,15 +91,31 @@ namespace e_apartments_app.db.dao
             {
                 DbController dbController = new DbController();
                 dbController.init();
-                dbController.runQuery("update ApartmentsClass set className = " +
-                    model.ClassName + ", numOfBedRooms  =" + model.NumOfBedRooms + ", numOfCommonBath = " 
+                dbController.runQueryUpdate("update ApartmentsClass set className = '" +
+                    model.ClassName + "', numOfBedRooms  ='" + model.NumOfBedRooms + "', numOfCommonBath = '" 
                     + model.NumOfCommonBath +
-                    ", numOfAttachBath = " + model.NumOfAttachBath + ", " +
-                    "numOfServantRooms = " + model.NumOfServantRooms + ", numOfServantBath = " + model.NumOfServantBath +
-                    " where clsID =" + model.ClsID + ";");
+                    "', numOfAttachBath = '" + model.NumOfAttachBath + "', " +
+                    "numOfServantRooms = '" + model.NumOfServantRooms + "', numOfServantBath = '" + model.NumOfServantBath +
+                    "' where clsID ='" + model.ClsID + "';");
                 dbController.closeConnection();
             }
             catch (Exception e)
+            {
+                throw new Exception("Exception: " + e);
+            }
+        }
+
+        public override void Add(AppartmentClassModel model)
+        {
+            try {
+                DbController dbController = new DbController();
+                dbController.init();
+                dbController.runQueryUpdate("insert into ApartmentsClass values ('"+ model.ClsID + "', '" + model.ClassName
+                    + "', '" + model.NumOfBedRooms + "', '" + model.NumOfCommonBath + "', '" + model.NumOfAttachBath + "' " +
+                    ", '" + model.NumOfServantRooms + "' , '" + model.NumOfServantBath + "' );");
+                dbController.closeConnection();
+            }
+            catch(Exception e)
             {
                 throw new Exception("Exception: " + e);
             }

@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.refreshBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -140,11 +141,24 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(8, 8);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
+            // refreshBtn
+            // 
+            this.refreshBtn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.refreshBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.refreshBtn.Location = new System.Drawing.Point(1074, 27);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(94, 29);
+            this.refreshBtn.TabIndex = 12;
+            this.refreshBtn.Text = "Refresh";
+            this.refreshBtn.UseVisualStyleBackColor = false;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1194, 838);
+            this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -174,5 +188,6 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel2;
         private Button button5;
+        private Button refreshBtn;
     }
 }

@@ -5,6 +5,24 @@ namespace e_apartments_app.db.dao
 {
     internal class ApartmentDao : SuperDao<ApartmentModel>
     {
+        public override void Add(ApartmentModel model)
+        {
+            try
+            {
+                DbController dbController = new DbController();
+                dbController.init();
+                dbController.runQueryUpdate("insert into Apartments values ('" + model.AID + "', '" + model.ClsID 
+                    + "', '" + model.BID + "', " + model.FloorNum + ", " + model.IfAvailable + " " +
+                    ", '" + model.CurrentOccupant + "' , " + model.IntDeposit + " , " 
+                    + model.Monthly + " , '" + model.UnavailableReason + "' );");
+                dbController.closeConnection();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Exception: " + e);
+            }
+        }
+
         public override List<ApartmentModel> getAll()
         {
             DbController dbController = new DbController();
@@ -49,12 +67,12 @@ namespace e_apartments_app.db.dao
             {
                 DbController dbController = new DbController();
                 dbController.init();
-                dbController.runQuery("update Apartments set clsID = " +
-                    model.ClsID + ", floorNum  =" + model.FloorNum + ", bID = " + model.BID + 
-                    ", ifAvailable = " + model.IfAvailable + ", " +
-                    "currentOccupant = " + model.CurrentOccupant +", intDeposit = " + model.IntDeposit + 
-                    ", monthly = " + model.Monthly +", " +
-                    "unavailableReason = " + model.UnavailableReason +" where aID =" + model.AID + ";");
+                dbController.runQueryUpdate("update Apartments set clsID = '" +
+                    model.ClsID + "', floorNum  ='" + model.FloorNum + "', bID = '" + model.BID +
+                    "', ifAvailable = '" + model.IfAvailable + "', " +
+                    "currentOccupant = '" + model.CurrentOccupant + "', intDeposit = '" + model.IntDeposit +
+                    "', monthly = '" + model.Monthly + "', " +
+                    "unavailableReason = '" + model.UnavailableReason + "' where aID ='" + model.AID + "';");
                 dbController.closeConnection();
             }
             catch (Exception e)

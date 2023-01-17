@@ -141,7 +141,23 @@ namespace e_apartments_app.db
                 cmd.ExecuteNonQuery();
                 return true;
             }catch (Exception e) { 
-                Console.WriteLine(e.ToString());
+                Console.WriteLine("Exception: " +e.ToString());
+                return false;
+            }
+        }
+
+        public bool runQueryUpdate(string query)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.ToString());
+                MessageBox.Show("Exception: " + e.ToString());
                 return false;
             }
         }

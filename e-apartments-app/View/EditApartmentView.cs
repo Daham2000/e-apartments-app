@@ -93,7 +93,9 @@ namespace e_apartments_app.View
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-
+            ApartmentDao apartmentDao = new ApartmentDao();
+            apartmentModel.Monthly = float.Parse(monthlyPrice.Text);
+            apartmentDao.update(apartmentModel.AID, apartmentModel);
         }
 
         private void imgBox_Click(object sender, EventArgs e)

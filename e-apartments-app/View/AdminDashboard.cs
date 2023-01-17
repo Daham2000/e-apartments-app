@@ -61,5 +61,10 @@ namespace e_apartments_app.View
                 
             }
         }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            populateApartments();
+        }
     }
 }

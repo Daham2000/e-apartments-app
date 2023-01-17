@@ -87,7 +87,35 @@ namespace e_apartments_app.db.dao
 
         public override void update(string id, BuildingModel model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DbController dbController = new DbController();
+                dbController.init();
+                dbController.runQueryUpdate("update Buildings set location = '" +
+                    model.Location + "', numOfApartments = '" + model.NumOfApartments + "', numOfFloors = '" + model.NumOfFloors +
+                   "' where bID = " + model.BID + ";");
+                dbController.closeConnection();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Exception: " + e);
+            }
+        }
+
+        public override void Add(BuildingModel model)
+        {
+            try
+            {
+                DbController dbController = new DbController();
+                dbController.init();
+                dbController.runQueryUpdate("insert into Buildings values ('" + model.BID + "', '" + model.Location
+                    + "', " + model.NumOfApartments + ", " + model.NumOfFloors + " );");
+                dbController.closeConnection();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Exception: " + e);
+            }
         }
     }
 }
