@@ -1,5 +1,6 @@
 ﻿using e_apartments_app.db.dao;
 using e_apartments_app.db.Model;
+using System.Net;
 
 namespace e_apartments_app.View
 {
@@ -8,12 +9,13 @@ namespace e_apartments_app.View
         ApartmentModel apartmentModel;
         BuildingModel buildingModel;
         AppartmentClassModel appartmentClassModel;
-        AppartmentClassModel[] appartmentClasses;
-        BuildingModel[] buildingModels;
+        List<AppartmentClassModel> appartmentClasses;
+        List<BuildingModel> buildingModels;
+        List<CustomerModel> customerModels;
 
         public EditApartmentView(ApartmentModel apartmentModel, BuildingModel buildingModel, 
-            AppartmentClassModel appartmentClassModel, AppartmentClassModel[] appartmentClasses,
-            BuildingModel[] buildingModels)
+            AppartmentClassModel appartmentClassModel, List<AppartmentClassModel> appartmentClasses,
+            List<BuildingModel> buildingModels, List<CustomerModel> customerModels)
         {
             InitializeComponent();
             this.buildingModel = buildingModel;
@@ -21,6 +23,7 @@ namespace e_apartments_app.View
             this.appartmentClassModel = appartmentClassModel;
             this.appartmentClasses = appartmentClasses;
             this.buildingModels = buildingModels;
+            this.customerModels = customerModels;
         }
 
         private void loadData()
@@ -38,21 +41,19 @@ namespace e_apartments_app.View
             }
             reasonLabel.Text = apartmentModel.UnavailableReason;
             floorLabel.Text = apartmentModel.FloorNum.ToString();
-            AppartmentClassDao appartmentClassDao = new AppartmentClassDao();
             classLabel.Text = "Current Class name: " + appartmentClassModel.ClassName;
             if (classBox.Items.Count == 0)
             {
-                for (int i = 0; i < appartmentClasses.Length - 1; i++)
+                for (int i = 0; i < appartmentClasses.Count; i++)
                 {
                     classBox.Items.Add(appartmentClasses[i].ClassName);
                 }
             }
-            buildingLabel.Text = "Current Building: " + buildingModel.BID;
+            buildingLabel.Text = "Current Building: " + buildingModels.Count.ToString();
 
-            BuildingDao buildingDao = new BuildingDao();
             if (buildingBox.Items.Count == 0)
             {
-                for (int i = 0; i < buildingModels.Length -1; i++)
+                for (int i = 0; i < buildingModels.Count; i++)
                 {
                     buildingBox.Items.Add(buildingModels[i].BID);
                 }
@@ -64,16 +65,38 @@ namespace e_apartments_app.View
             }
             else
             {
-                occupantLabel.Text = "Current Occupant: " + apartmentModel.CurrentOccupant;
+                occupantLabel.Text = "Current Occupant: " + customerModels.Count.ToString();
             }
+            if (occupantBox.Items.Count == 0)
+            {
+                for (int i = 0; i < customerModels.Count; i++)
+                {
+                    occupantBox.Items.Add(customerModels[i].Name);
+                }
+            }
+
+            depositPrice.Text = apartmentModel.IntDeposit.ToString();
+            monthlyPrice.Text = apartmentModel.Monthly.ToString();
         }
 
         private void EditApartmentView_Load(object sender, EventArgs e)
         {
             loadData();
+            var request = WebRequest.Create("https://thumbs.dreamstime.com/b/apartment-building-modern-buildings-new-westminster-british-columbia-canada-40351928.jpg");
+
+            using (var response = request.GetResponse())
+            using (var stream = response.GetResponseStream())
+            {
+                imgBox.Image = Bitmap.FromStream(stream);
+            }
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void imgBox_Click(object sender, EventArgs e)
         {
 
         }

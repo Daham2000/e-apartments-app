@@ -66,6 +66,7 @@
             this.apartmentDetail.Name = "apartmentDetail";
             this.apartmentDetail.Size = new System.Drawing.Size(831, 337);
             this.apartmentDetail.TabIndex = 9;
+            this.apartmentDetail.Paint += new System.Windows.Forms.PaintEventHandler(this.apartmentDetail_Paint);
             // 
             // servantBathRoom
             // 

@@ -33,9 +33,9 @@ namespace e_apartments_app.db.dao
             }
         }
 
-        public override BuildingModel[] getAll()
+        public override List<BuildingModel> getAll()
         {
-            BuildingModel[] list = new BuildingModel[GetCount()];
+            List<BuildingModel> list = new List<BuildingModel>();
             try
             {
                 DbController dbController = new DbController();
@@ -44,15 +44,14 @@ namespace e_apartments_app.db.dao
                 SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM Buildings;");
                 if (readerAllData.Read())
                 {
-                    int i = 0;
                     while (readerAllData.Read())
                     {
-                        list[i] = new BuildingModel();
-                        list[i].BID = readerAllData["bID"].ToString();
-                        list[i].Location = readerAllData["location"].ToString();
-                        list[i].NumOfApartments = Convert.ToInt32(readerAllData["numOfApartments"]);
-                        list[i].NumOfFloors = Convert.ToInt32(readerAllData["numOfFloors"]);
-                        i += 1;
+                        BuildingModel buildingModel = new BuildingModel();
+                        buildingModel.BID = readerAllData["bID"].ToString();
+                        buildingModel.Location = readerAllData["location"].ToString();
+                        buildingModel.NumOfApartments = Convert.ToInt32(readerAllData["numOfApartments"]);
+                        buildingModel.NumOfFloors = Convert.ToInt32(readerAllData["numOfFloors"]);
+                        list.Add(buildingModel);
                     }
                 }
                 return list;
@@ -84,6 +83,11 @@ namespace e_apartments_app.db.dao
                 throw new Exception("Exception: " + e.ToString());
             }
             return buildingModel;
+        }
+
+        public override void update(string id, BuildingModel model)
+        {
+            throw new NotImplementedException();
         }
     }
 }

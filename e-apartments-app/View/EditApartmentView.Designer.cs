@@ -53,15 +53,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.occupantLabel = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.occupantBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.depositPrice = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.monthlyPrice = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imgBox = new System.Windows.Forms.PictureBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -72,7 +72,7 @@
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -250,7 +250,7 @@
             // 
             this.panel6.Controls.Add(this.reasonLabel);
             this.panel6.Controls.Add(this.label8);
-            this.panel6.Location = new System.Drawing.Point(321, 146);
+            this.panel6.Location = new System.Drawing.Point(368, 626);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(599, 59);
             this.panel6.TabIndex = 4;
@@ -283,20 +283,20 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.comboBox4);
+            this.panel7.Controls.Add(this.occupantBox);
             this.panel7.Controls.Add(this.label10);
             this.panel7.Location = new System.Drawing.Point(20, 487);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(319, 59);
             this.panel7.TabIndex = 10;
             // 
-            // comboBox4
+            // occupantBox
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(134, 19);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(151, 28);
-            this.comboBox4.TabIndex = 4;
+            this.occupantBox.FormattingEnabled = true;
+            this.occupantBox.Location = new System.Drawing.Point(134, 19);
+            this.occupantBox.Name = "occupantBox";
+            this.occupantBox.Size = new System.Drawing.Size(151, 28);
+            this.occupantBox.TabIndex = 4;
             // 
             // label10
             // 
@@ -309,19 +309,19 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.textBox4);
+            this.panel8.Controls.Add(this.depositPrice);
             this.panel8.Controls.Add(this.label11);
             this.panel8.Location = new System.Drawing.Point(19, 561);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(321, 59);
             this.panel8.TabIndex = 6;
             // 
-            // textBox4
+            // depositPrice
             // 
-            this.textBox4.Location = new System.Drawing.Point(183, 19);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(102, 27);
-            this.textBox4.TabIndex = 3;
+            this.depositPrice.Location = new System.Drawing.Point(183, 19);
+            this.depositPrice.Name = "depositPrice";
+            this.depositPrice.Size = new System.Drawing.Size(125, 27);
+            this.depositPrice.TabIndex = 3;
             // 
             // label11
             // 
@@ -334,19 +334,19 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.textBox5);
+            this.panel9.Controls.Add(this.monthlyPrice);
             this.panel9.Controls.Add(this.label12);
             this.panel9.Location = new System.Drawing.Point(19, 626);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(321, 59);
             this.panel9.TabIndex = 7;
             // 
-            // textBox5
+            // monthlyPrice
             // 
-            this.textBox5.Location = new System.Drawing.Point(160, 19);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(102, 27);
-            this.textBox5.TabIndex = 3;
+            this.monthlyPrice.Location = new System.Drawing.Point(160, 19);
+            this.monthlyPrice.Name = "monthlyPrice";
+            this.monthlyPrice.Size = new System.Drawing.Size(138, 27);
+            this.monthlyPrice.TabIndex = 3;
             // 
             // label12
             // 
@@ -357,17 +357,18 @@
             this.label12.TabIndex = 3;
             this.label12.Text = "Change Monthly Price: ";
             // 
-            // pictureBox1
+            // imgBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(689, 237);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(398, 255);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.imgBox.Location = new System.Drawing.Point(692, 21);
+            this.imgBox.Name = "imgBox";
+            this.imgBox.Size = new System.Drawing.Size(389, 252);
+            this.imgBox.TabIndex = 11;
+            this.imgBox.TabStop = false;
+            this.imgBox.Click += new System.EventHandler(this.imgBox_Click);
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(19, 718);
+            this.saveBtn.Location = new System.Drawing.Point(19, 709);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(94, 29);
             this.saveBtn.TabIndex = 12;
@@ -381,7 +382,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1099, 773);
             this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.imgBox);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.occupantLabel);
@@ -418,7 +419,7 @@
             this.panel8.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -451,15 +452,15 @@
         private Label label8;
         private Label occupantLabel;
         private Panel panel7;
-        private ComboBox comboBox4;
+        private ComboBox occupantBox;
         private Label label10;
         private Panel panel8;
-        private TextBox textBox4;
+        private TextBox depositPrice;
         private Label label11;
         private Panel panel9;
-        private TextBox textBox5;
+        private TextBox monthlyPrice;
         private Label label12;
-        private PictureBox pictureBox1;
+        private PictureBox imgBox;
         private Button saveBtn;
     }
 }

@@ -1,15 +1,5 @@
 ﻿using e_apartments_app.db.dao;
 using e_apartments_app.db.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace e_apartments_app.View
 {
@@ -30,20 +20,22 @@ namespace e_apartments_app.View
         {
             ApartmentDao apartmentDao = new ApartmentDao();
             AppartmentClassDao appartmentClassDao = new AppartmentClassDao();
+            CustomerDao customerDao = new CustomerDao();
             BuildingDao buildingDao = new BuildingDao();
             AppartmentClassModel appartmentClass = new AppartmentClassModel();
             BuildingModel buildingModel = new BuildingModel();
-            ApartmentModel[] apartments = apartmentDao.getAll();
-            ApartmentComponent[] apartmentComponents = new ApartmentComponent[apartments.Length];
-            AppartmentClassModel[] appartmentClasses = appartmentClassDao.getAll();
-            BuildingModel[] buildingModels = buildingDao.getAll();
-            for (int i=0; i < apartments.Length -1; i++)
+            List<ApartmentModel> apartments = apartmentDao.getAll();
+            ApartmentComponent[] apartmentComponents = new ApartmentComponent[apartments.Count];
+            List<AppartmentClassModel> appartmentClasses = appartmentClassDao.getAll();
+            List<CustomerModel> customerModels = customerDao.getAll();
+            List<BuildingModel>  buildingModels = buildingDao.getAll();
+            for (int i=0; i < apartments.Count ; i++)
             {
                 if (apartments[i] != null)
                 {
                     appartmentClass = appartmentClassDao.getSingle(apartments[i].ClsID);
                     buildingModel = buildingDao.getSingle(apartments[i].BID);
-                    apartmentComponents[i] = new ApartmentComponent(apartments[i], buildingModel, appartmentClass, appartmentClasses, buildingModels);
+                    apartmentComponents[i] = new ApartmentComponent(apartments[i], buildingModel, appartmentClass, appartmentClasses, buildingModels, customerModels);
                     apartmentComponents[i].Title = buildingModel.Location;
                     apartmentComponents[i].ClassName = appartmentClass.ClassName;
                     apartmentComponents[i].Description = "living and dining area, self-contained kitchen/pantry unit," +

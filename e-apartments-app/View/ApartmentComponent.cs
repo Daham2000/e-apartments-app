@@ -10,12 +10,13 @@ namespace e_apartments_app.View
         ApartmentModel apartmentModel;
         BuildingModel buildingModel;
         AppartmentClassModel appartmentClassModel;
-        AppartmentClassModel[] appartmentClasses;
-        BuildingModel[] buildingModels;
+        List<AppartmentClassModel> appartmentClasses;
+        List<BuildingModel> buildingModels;
+        List<CustomerModel> customerModels;
 
         public ApartmentComponent(ApartmentModel apartmentModel, BuildingModel buildingModel,
-            AppartmentClassModel appartmentClassModel, AppartmentClassModel[] appartmentClasses,
-            BuildingModel[] buildingModels)
+            AppartmentClassModel appartmentClassModel, List<AppartmentClassModel> appartmentClasses,
+            List<BuildingModel> buildingModels, List<CustomerModel> customerModels)
         {
             InitializeComponent();
             this.buildingModel = buildingModel;
@@ -23,6 +24,7 @@ namespace e_apartments_app.View
             this.appartmentClassModel = appartmentClassModel;
             this.appartmentClasses = appartmentClasses;
             this.buildingModels = buildingModels;
+            this.customerModels = customerModels;
         }
 
         #region Properties
@@ -110,8 +112,13 @@ namespace e_apartments_app.View
         private void button4_Click(object sender, EventArgs e)
         {
             EditApartmentView editView = new EditApartmentView(apartmentModel, buildingModel, appartmentClassModel, appartmentClasses,
-                buildingModels);
+                buildingModels, customerModels);
             editView.Show();
+        }
+
+        private void apartmentDetail_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

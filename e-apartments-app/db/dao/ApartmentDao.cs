@@ -3,40 +3,63 @@ using System.Data.SqlClient;
 
 namespace e_apartments_app.db.dao
 {
-    internal class ApartmentDao
+    internal class ApartmentDao : SuperDao<ApartmentModel>
     {
-        public ApartmentModel[] getAll()
+        public override List<ApartmentModel> getAll()
         {
             DbController dbController = new DbController();
             dbController.init();
+            List<ApartmentModel> list = new List<ApartmentModel>();
 
             SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM Apartments;");
             dbController.init();
             SqlDataReader? sqlDataReader = dbController.selectData("SELECT COUNT(*) AS Rows FROM Apartments;");
             if (sqlDataReader.Read() & readerAllData.Read())
             {
-                ApartmentModel[] apartments = new ApartmentModel[sqlDataReader.GetInt32(sqlDataReader.GetOrdinal("Rows"))];
-                int i = 0;
                 while (readerAllData.Read())
                 {
-                    apartments[i] = new ApartmentModel();
-                    apartments[i].AID = readerAllData["aID"].ToString();
-                    apartments[i].UnavailableReason = readerAllData["unavailableReason"].ToString();
-                    apartments[i].ClsID = readerAllData["clsID"].ToString();
-                    apartments[i].BID = readerAllData["bID"].ToString();
-                    apartments[i].FloorNum = Convert.ToInt32(readerAllData["floorNum"]);
-                    apartments[i].IfAvailable = Convert.ToInt32(readerAllData["IfAvailable"]);
-                    apartments[i].CurrentOccupant = readerAllData["currentOccupant"].ToString();
-                    apartments[i].IntDeposit = Convert.ToSingle(readerAllData["intDeposit"]);
-                    apartments[i].Monthly = Convert.ToSingle(readerAllData["monthly"]);
-                    i += 1;
+                    ApartmentModel apartmentModel = new ApartmentModel();
+                    apartmentModel.AID = readerAllData["aID"].ToString();
+                    apartmentModel.UnavailableReason = readerAllData["unavailableReason"].ToString();
+                    apartmentModel.ClsID = readerAllData["clsID"].ToString();
+                    apartmentModel.BID = readerAllData["bID"].ToString();
+                    apartmentModel.FloorNum = Convert.ToInt32(readerAllData["floorNum"]);
+                    apartmentModel.IfAvailable = Convert.ToInt32(readerAllData["IfAvailable"]);
+                    apartmentModel.CurrentOccupant = readerAllData["currentOccupant"].ToString();
+                    apartmentModel.IntDeposit = Convert.ToSingle(readerAllData["intDeposit"]);
+                    apartmentModel.Monthly = Convert.ToSingle(readerAllData["monthly"]);
+                    list.Add(apartmentModel);
                 }
-                return apartments;
+                return list;
             }
             else
             {
-                ApartmentModel[] apartments = new ApartmentModel[0];
-                return apartments;
+                return list;
+            }
+        }
+
+        public override ApartmentModel getSingle(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void update(string id, ApartmentModel model)
+        {
+            try
+            {
+                DbController dbController = new DbController();
+                dbController.init();
+                dbController.runQuery("update Apartments set clsID = " +
+                    model.ClsID + ", floorNum  =" + model.FloorNum + ", bID = " + model.BID + 
+                    ", ifAvailable = " + model.IfAvailable + ", " +
+                    "currentOccupant = " + model.CurrentOccupant +", intDeposit = " + model.IntDeposit + 
+                    ", monthly = " + model.Monthly +", " +
+                    "unavailableReason = " + model.UnavailableReason +" where aID =" + model.AID + ";");
+                dbController.closeConnection();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Exception: " + e);
             }
         }
     }

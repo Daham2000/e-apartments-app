@@ -53,9 +53,9 @@ namespace e_apartments_app.db.dao
             }
         }
 
-        public override AppartmentClassModel[] getAll()
+        public override List<AppartmentClassModel> getAll()
         {
-            AppartmentClassModel[] list = new AppartmentClassModel[GetCount()];
+            List<AppartmentClassModel> list = new List<AppartmentClassModel>();
             try
             {
                 DbController dbController = new DbController();
@@ -64,18 +64,17 @@ namespace e_apartments_app.db.dao
                 SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM ApartmentsClass;");
                 if (readerAllData.Read())
                 {
-                    int i = 0;
                     while (readerAllData.Read())
                     {
-                        list[i] = new AppartmentClassModel();
-                        list[i].ClsID = readerAllData["clsID"].ToString();
-                        list[i].ClassName = readerAllData["className"].ToString();
-                        list[i].NumOfBedRooms = Convert.ToInt32(readerAllData["numOfBedRooms"]);
-                        list[i].NumOfCommonBath = Convert.ToInt32(readerAllData["numOfCommonBath"]);
-                        list[i].NumOfAttachBath = Convert.ToInt32(readerAllData["numOfAttachBath"]);
-                        list[i].NumOfServantRooms = Convert.ToInt32(readerAllData["numOfServantRooms"]);
-                        list[i].NumOfServantBath = Convert.ToInt32(readerAllData["numOfServantBath"]);
-                        i += 1;
+                        AppartmentClassModel model = new AppartmentClassModel();
+                        model.ClsID = readerAllData["clsID"].ToString();
+                        model.ClassName = readerAllData["className"].ToString();
+                        model.NumOfBedRooms = Convert.ToInt32(readerAllData["numOfBedRooms"]);
+                        model.NumOfCommonBath = Convert.ToInt32(readerAllData["numOfCommonBath"]);
+                        model.NumOfAttachBath = Convert.ToInt32(readerAllData["numOfAttachBath"]);
+                        model.NumOfServantRooms = Convert.ToInt32(readerAllData["numOfServantRooms"]);
+                        model.NumOfServantBath = Convert.ToInt32(readerAllData["numOfServantBath"]);
+                        list.Add(model);
                     }
                 }
                 return list;
@@ -83,6 +82,26 @@ namespace e_apartments_app.db.dao
             catch(Exception e)
             {
                 return list;
+            }
+        }
+
+        public override void update(string id, AppartmentClassModel model)
+        {
+            try
+            {
+                DbController dbController = new DbController();
+                dbController.init();
+                dbController.runQuery("update ApartmentsClass set className = " +
+                    model.ClassName + ", numOfBedRooms  =" + model.NumOfBedRooms + ", numOfCommonBath = " 
+                    + model.NumOfCommonBath +
+                    ", numOfAttachBath = " + model.NumOfAttachBath + ", " +
+                    "numOfServantRooms = " + model.NumOfServantRooms + ", numOfServantBath = " + model.NumOfServantBath +
+                    " where clsID =" + model.ClsID + ";");
+                dbController.closeConnection();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Exception: " + e);
             }
         }
     }

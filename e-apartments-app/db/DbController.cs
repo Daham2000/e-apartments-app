@@ -65,7 +65,7 @@ namespace e_apartments_app.db
                 runQuery(query);
 
                 //Sql table Customers
-                query = "create table Customers (cID varchar(100) NOT null, name varchar(100) NOT null, address varchar(100) NOT null, NIC varchar(100) NOT null, contactDetails int NOT null, primary key (cID));";
+                query = "create table Customers (cID varchar(100) NOT null, name varchar(100) NOT null, username varchar(100) NOT null, password varchar(100) not null, address varchar(100) NOT null, NIC varchar(100) NOT null, contactDetails int NOT null, primary key (cID));";
                 runQuery(query);
 
                 //Sql table Dependents
@@ -123,6 +123,14 @@ namespace e_apartments_app.db
             runQuery(query);
             query = "insert into Apartments values ('A00042', 'cls0001', 'B00033', 2, 0, '', 70000, 10000, '');";
             runQuery(query);
+
+            query = "insert into Customers values ('cID0001', 'Dasun Madushanka', 'dasun', '12345', 'Colombo Dehiwala', '200000302222', 0772323111);";
+            runQuery(query);
+            query = "insert into Customers values ('cID0002', 'Kasun Silva', 'moli', '12345', 'Colombo Dehiwala', '200000302222', 0772323111);";
+            runQuery(query);
+            query = "insert into Customers values ('cID0003', 'Gemoes Perera', 'gomes', '12345', 'Colombo Dehiwala', '200000302222', 0772323111);";
+            runQuery(query);
+
         }
 
         public bool runQuery(string query)
