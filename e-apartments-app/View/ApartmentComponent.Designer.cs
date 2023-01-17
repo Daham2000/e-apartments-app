@@ -197,6 +197,7 @@
             this.Controls.Add(this.apartmentDetail);
             this.Name = "ApartmentComponent";
             this.Size = new System.Drawing.Size(830, 354);
+            this.Load += new System.EventHandler(this.ApartmentComponent_Load);
             this.apartmentDetail.ResumeLayout(false);
             this.apartmentDetail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();

@@ -31,8 +31,7 @@ namespace e_apartments_app.db.dao
 
             SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM Apartments;");
             dbController.init();
-            SqlDataReader? sqlDataReader = dbController.selectData("SELECT COUNT(*) AS Rows FROM Apartments;");
-            if (sqlDataReader.Read() & readerAllData.Read())
+            if (readerAllData.Read())
             {
                 while (readerAllData.Read())
                 {

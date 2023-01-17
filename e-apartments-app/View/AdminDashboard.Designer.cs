@@ -32,17 +32,18 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.customerBtn = new System.Windows.Forms.Button();
+            this.editClassBtn = new System.Windows.Forms.Button();
+            this.leaseBtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.apartmentBtn = new System.Windows.Forms.Button();
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.apartmentListFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.refreshBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.apartmentListFlow.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -70,69 +71,83 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(86)))), ((int)(((byte)(103)))));
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.customerBtn);
+            this.panel1.Controls.Add(this.editClassBtn);
+            this.panel1.Controls.Add(this.leaseBtn);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.apartmentBtn);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 840);
             this.panel1.TabIndex = 6;
             // 
-            // button5
+            // customerBtn
             // 
-            this.button5.Location = new System.Drawing.Point(3, 272);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(247, 29);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "Edit Class";
-            this.button5.UseVisualStyleBackColor = true;
+            this.customerBtn.Location = new System.Drawing.Point(3, 326);
+            this.customerBtn.Name = "customerBtn";
+            this.customerBtn.Size = new System.Drawing.Size(247, 29);
+            this.customerBtn.TabIndex = 11;
+            this.customerBtn.Text = "Customer Management";
+            this.customerBtn.UseVisualStyleBackColor = true;
+            this.customerBtn.Click += new System.EventHandler(this.customerBtn_Click);
             // 
-            // button3
+            // editClassBtn
             // 
-            this.button3.Location = new System.Drawing.Point(3, 216);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(247, 29);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Lease details";
-            this.button3.UseVisualStyleBackColor = true;
+            this.editClassBtn.Location = new System.Drawing.Point(3, 272);
+            this.editClassBtn.Name = "editClassBtn";
+            this.editClassBtn.Size = new System.Drawing.Size(247, 29);
+            this.editClassBtn.TabIndex = 10;
+            this.editClassBtn.Text = "Edit Class";
+            this.editClassBtn.UseVisualStyleBackColor = true;
+            this.editClassBtn.Click += new System.EventHandler(this.editClassBtn_Click);
+            // 
+            // leaseBtn
+            // 
+            this.leaseBtn.Location = new System.Drawing.Point(3, 216);
+            this.leaseBtn.Name = "leaseBtn";
+            this.leaseBtn.Size = new System.Drawing.Size(247, 29);
+            this.leaseBtn.TabIndex = 9;
+            this.leaseBtn.Text = "Lease details";
+            this.leaseBtn.UseVisualStyleBackColor = true;
+            this.leaseBtn.Click += new System.EventHandler(this.leaseBtn_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(3, 766);
+            this.button2.Location = new System.Drawing.Point(3, 770);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(247, 29);
             this.button2.TabIndex = 8;
             this.button2.Text = "Logout";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // apartmentBtn
             // 
-            this.button1.Location = new System.Drawing.Point(3, 164);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(247, 29);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Apartment details";
-            this.button1.UseVisualStyleBackColor = true;
+            this.apartmentBtn.Location = new System.Drawing.Point(3, 164);
+            this.apartmentBtn.Name = "apartmentBtn";
+            this.apartmentBtn.Size = new System.Drawing.Size(247, 29);
+            this.apartmentBtn.TabIndex = 7;
+            this.apartmentBtn.Text = "Apartment details";
+            this.apartmentBtn.UseVisualStyleBackColor = true;
+            this.apartmentBtn.Click += new System.EventHandler(this.apartmentBtn_Click);
             // 
-            // label2
+            // titleLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(269, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 31);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Apartment details";
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.titleLabel.Location = new System.Drawing.Point(262, 22);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(200, 31);
+            this.titleLabel.TabIndex = 7;
+            this.titleLabel.Text = "Apartment details";
             // 
-            // flowLayoutPanel1
+            // apartmentListFlow
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(269, 69);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(899, 727);
-            this.flowLayoutPanel1.TabIndex = 11;
+            this.apartmentListFlow.AutoScroll = true;
+            this.apartmentListFlow.Controls.Add(this.flowLayoutPanel2);
+            this.apartmentListFlow.Location = new System.Drawing.Point(269, 69);
+            this.apartmentListFlow.Name = "apartmentListFlow";
+            this.apartmentListFlow.Size = new System.Drawing.Size(899, 727);
+            this.apartmentListFlow.TabIndex = 11;
             // 
             // flowLayoutPanel2
             // 
@@ -159,8 +174,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1194, 838);
             this.Controls.Add(this.refreshBtn);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.apartmentListFlow);
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
@@ -170,7 +185,7 @@
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.apartmentListFlow.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,13 +196,14 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Panel panel1;
-        private Button button3;
+        private Button leaseBtn;
         private Button button2;
-        private Button button1;
-        private Label label2;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private Button apartmentBtn;
+        private Label titleLabel;
+        private FlowLayoutPanel apartmentListFlow;
         private FlowLayoutPanel flowLayoutPanel2;
-        private Button button5;
+        private Button editClassBtn;
         private Button refreshBtn;
+        private Button customerBtn;
     }
 }

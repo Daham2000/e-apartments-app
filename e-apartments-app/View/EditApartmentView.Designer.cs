@@ -139,6 +139,7 @@
             this.statusBox.Name = "statusBox";
             this.statusBox.Size = new System.Drawing.Size(151, 28);
             this.statusBox.TabIndex = 5;
+            this.statusBox.SelectedIndexChanged += new System.EventHandler(this.statusBox_SelectedIndexChanged);
             // 
             // label2
             // 

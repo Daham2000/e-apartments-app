@@ -120,5 +120,10 @@ namespace e_apartments_app.View
         {
 
         }
+
+        private void ApartmentComponent_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

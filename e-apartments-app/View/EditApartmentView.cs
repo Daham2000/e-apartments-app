@@ -49,7 +49,7 @@ namespace e_apartments_app.View
                     classBox.Items.Add(appartmentClasses[i].ClassName);
                 }
             }
-            buildingLabel.Text = "Current Building: " + buildingModels.Count.ToString();
+            buildingLabel.Text = "Current Building: " + buildingModel.BID + ": " + buildingModel.Location;
 
             if (buildingBox.Items.Count == 0)
             {
@@ -65,7 +65,7 @@ namespace e_apartments_app.View
             }
             else
             {
-                occupantLabel.Text = "Current Occupant: " + customerModels.Count.ToString();
+                occupantLabel.Text = "Current Occupant: " + apartmentModel.CurrentOccupant;
             }
             if (occupantBox.Items.Count == 0)
             {
@@ -93,12 +93,40 @@ namespace e_apartments_app.View
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            ApartmentDao apartmentDao = new ApartmentDao();
-            apartmentModel.Monthly = float.Parse(monthlyPrice.Text);
-            apartmentDao.update(apartmentModel.AID, apartmentModel);
+            try {
+                ApartmentDao apartmentDao = new ApartmentDao();
+                apartmentModel.Monthly = float.Parse(monthlyPrice.Text);
+                if (statusBox.Text == "Available")
+                {
+                    apartmentModel.IfAvailable = 1;
+                }
+                else
+                {
+                    apartmentModel.IfAvailable = 0;
+                }
+                apartmentModel.FloorNum = int.Parse(floorLabel.Text);
+                var classModelSele = appartmentClasses.First(s => s.ClassName == classBox.Text);
+                apartmentModel.ClsID = classModelSele.ClsID;
+                apartmentModel.BID = buildingBox.Text;
+                apartmentModel.CurrentOccupant = occupantBox.Text;
+                apartmentModel.UnavailableReason = reasonLabel.Text;
+                apartmentModel.IntDeposit = float.Parse(depositPrice.Text);
+                apartmentModel.Monthly = float.Parse(monthlyPrice.Text);
+
+                apartmentDao.update(apartmentModel.AID, apartmentModel);
+            } catch (Exception ee)
+            {
+                MessageBox.Show(ee.ToString());
+            }
+            
         }
 
         private void imgBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void statusBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
