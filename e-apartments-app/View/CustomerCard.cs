@@ -39,5 +39,11 @@ namespace e_apartments_app.View
         {
 
         }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            EditCustomerView editCustomerView = new EditCustomerView(customerModel, dependentsModels);
+            editCustomerView.Show();
+        }
     }
 }

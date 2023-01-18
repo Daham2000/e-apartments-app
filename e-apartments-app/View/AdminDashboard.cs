@@ -85,7 +85,16 @@ namespace e_apartments_app.View
         private void refreshBtn_Click(object sender, EventArgs e)
         {
             apartmentListFlow.Controls.Clear();
-            populateApartments();
+            if(titleLabel.Text == "Manage Customer Details")
+            {
+                dependentsModels = customerDao.GetAllDependents();
+                customerModels = customerDao.getAll();
+                loadCustomerDetails();
+            }
+            else
+            {
+                populateApartments();
+            }
         }
 
         private void leaseBtn_Click(object sender, EventArgs e)
@@ -126,10 +135,15 @@ namespace e_apartments_app.View
 
         private void customerBtn_Click(object sender, EventArgs e)
         {
+            loadCustomerDetails();
+        }
+
+        private void loadCustomerDetails()
+        {
             titleLabel.Text = "Manage Customer Details";
             refreshBtn.Show();
             apartmentListFlow.Controls.Clear();
-            if(dependentsModels.Count == 0)
+            if (dependentsModels.Count == 0)
             {
                 dependentsModels = customerDao.GetAllDependents();
             }

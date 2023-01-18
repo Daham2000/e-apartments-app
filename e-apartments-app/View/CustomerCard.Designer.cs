@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.editBtn = new System.Windows.Forms.Button();
             this.flowDependant = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.contactLabel = new System.Windows.Forms.Label();
@@ -36,7 +37,6 @@
             this.addressLabel = new System.Windows.Forms.Label();
             this.userNameLabel = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.Label();
-            this.editBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(854, 217);
             this.panel1.TabIndex = 0;
+            // 
+            // editBtn
+            // 
+            this.editBtn.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.editBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.editBtn.Location = new System.Drawing.Point(739, 14);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(94, 29);
+            this.editBtn.TabIndex = 7;
+            this.editBtn.Text = "Edit";
+            this.editBtn.UseVisualStyleBackColor = false;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // flowDependant
             // 
@@ -118,17 +130,6 @@
             this.name.Size = new System.Drawing.Size(156, 25);
             this.name.TabIndex = 0;
             this.name.Text = "Customer Name: ";
-            // 
-            // editBtn
-            // 
-            this.editBtn.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.editBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.editBtn.Location = new System.Drawing.Point(739, 14);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(94, 29);
-            this.editBtn.TabIndex = 7;
-            this.editBtn.Text = "Edit";
-            this.editBtn.UseVisualStyleBackColor = false;
             // 
             // CustomerCard
             // 

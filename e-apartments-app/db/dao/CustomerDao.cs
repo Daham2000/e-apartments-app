@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -100,6 +101,22 @@ namespace e_apartments_app.db.dao
             catch (Exception e)
             {
                 return list;
+            }
+        }
+
+        public void AddDependant(DependentsModel model)
+        {
+            try
+            {
+                DbController dbController = new DbController();
+                dbController.init();
+                dbController.runQueryUpdate("insert into Dependents values ('" + model.DID + "', '" + model.CID
+                + "', '" + model.Relation + "', '" + model.Name + "' );");
+                dbController.closeConnection();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Exception: " + e);
             }
         }
     }
