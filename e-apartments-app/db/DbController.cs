@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualBasic.Logging;
+﻿using e_apartments_app.db.dao;
+using e_apartments_app.db.Model;
+using Microsoft.VisualBasic.Logging;
 using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
@@ -140,6 +142,13 @@ namespace e_apartments_app.db
             query = "insert into Agreements values ('agg0005', 'A00032', 'cID0003', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 20000, 0);";
             runQuery(query);
 
+            query = "insert into Agreements values ('agg0005', 'A00032', 'cID0003', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 20000, 0);";
+            runQuery(query);
+
+            query = "insert into ExtentionRequests values ('E00003', 'agg0005', 3, 1);";
+            runQuery(query);
+            query = "insert into ExtentionRequests values ('E00004', 'agg0005', 1, 0);";
+            runQuery(query);
         }
 
         public bool runQuery(string query)

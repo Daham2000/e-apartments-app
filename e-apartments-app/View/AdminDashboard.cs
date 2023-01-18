@@ -1,5 +1,6 @@
 ﻿using e_apartments_app.db.dao;
 using e_apartments_app.db.Model;
+using Microsoft.VisualBasic;
 
 namespace e_apartments_app.View
 {
@@ -8,17 +9,15 @@ namespace e_apartments_app.View
         ApartmentDao apartmentDao = new ApartmentDao();
         AppartmentClassDao appartmentClassDao = new AppartmentClassDao();
         AgreementDao agreementDao= new AgreementDao();
+        ExtentionRequestsDao extentionRequestsDao = new ExtentionRequestsDao();
         CustomerDao customerDao = new CustomerDao();
         BuildingDao buildingDao = new BuildingDao();
         List<AppartmentClassModel> appartmentClasses;
         List<CustomerModel> customerModels;
         List<BuildingModel> buildingModels;
         List<AgreementModel> agreementModels = new List<AgreementModel>();
-        bool isApartmentDetails = false;
-        bool isLeaseDetails = false;
-        bool isCustomerDetails = false;
-        bool isEditClass = false;
         List<ApartmentModel> apartments = new List<ApartmentModel>();
+        List<ExtentionRequestsModel> requestList = new List<ExtentionRequestsModel>();
 
         public AdminDashboard()
         {
@@ -27,7 +26,6 @@ namespace e_apartments_app.View
             customerModels = customerDao.getAll();
             buildingModels = buildingDao.getAll();
             populateApartments();
-            isApartmentDetails = true;
         }
 
         private void AdminDashboard_Load(object sender, EventArgs e)
@@ -121,14 +119,37 @@ namespace e_apartments_app.View
         {
             titleLabel.Text = "Edit Apartment Class Details";
             refreshBtn.Hide();
-            apartmentListFlow.Hide();
+            apartmentListFlow.Controls.Clear();
         }
 
         private void customerBtn_Click(object sender, EventArgs e)
         {
             titleLabel.Text = "Manage Customer Details";
             refreshBtn.Hide();
-            apartmentListFlow.Hide();
+            apartmentListFlow.Controls.Clear();
+        }
+
+        private void requestViewBtn_Click(object sender, EventArgs e)
+        {
+            titleLabel.Text = "Lease Extention Requests";
+            refreshBtn.Hide();
+            apartmentListFlow.Controls.Clear();
+
+            if (requestList.Count == 0)
+            {
+                requestList = extentionRequestsDao.getAll();
+            }
+            ExtentionRequestView[] extentionRequestViews = new ExtentionRequestView[requestList.Count];
+            for (int i = 0; i < requestList.Count; i++)
+            {
+                if (agreementModels[i] != null)
+                {
+                    var agreementModel = agreementModels.First(s => s.AgreeID == requestList[i].AgreeID);
+                    var customerModel = customerModels.First(s => s.CID == agreementModel.CID);
+                    extentionRequestViews[i] = new ExtentionRequestView(agreementModels[i], customerModel, new ExtentionRequestsModel(), apartments, customerModels, requestList[i]);
+                    apartmentListFlow.Controls.Add(extentionRequestViews[i]);
+                }
+            }
         }
     }
 }

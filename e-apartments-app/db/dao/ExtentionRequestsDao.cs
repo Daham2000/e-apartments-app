@@ -1,14 +1,9 @@
 ﻿using e_apartments_app.db.Model;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace e_apartments_app.db.dao
 {
-    internal class ExtentionRequestsDao : SuperDao<ExtentionRequestsModel>
+    public class ExtentionRequestsDao : SuperDao<ExtentionRequestsModel>
     {
         public override void Add(ExtentionRequestsModel model)
         {
@@ -17,7 +12,7 @@ namespace e_apartments_app.db.dao
                 DbController dbController = new DbController();
                 dbController.init();
                 dbController.runQueryUpdate("insert into ExtentionRequests values ('" + model.ExtentionRequestsId + "', '" + model.AgreeID
-                    + "', '" + model.RequestedMonths + "', " + model.Accepted + "' );");
+                    + "', '" + model.RequestedMonths + "', " + model.Accepted + " );");
                 dbController.closeConnection();
             }
             catch (Exception e)
@@ -65,8 +60,8 @@ namespace e_apartments_app.db.dao
                 DbController dbController = new DbController();
                 dbController.init();
                 dbController.runQueryUpdate("update ExtentionRequests set agreeID = '" +
-                    model.AgreeID + "', requestedMonths  ='" + model.RequestedMonths + "', accepted = '" + model.Accepted +
-                    "' where extentionRequestsId ='" + model.ExtentionRequestsId + "';");
+                    model.AgreeID + "', requestedMonths  ='" + model.RequestedMonths + "', accepted = " + model.Accepted +
+                    " where extentionRequestsId ='" + model.ExtentionRequestsId + "';");
                 dbController.closeConnection();
             }
             catch (Exception e)

@@ -41,6 +41,7 @@
             this.apartmentListFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.refreshBtn = new System.Windows.Forms.Button();
+            this.requestViewBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.apartmentListFlow.SuspendLayout();
@@ -71,6 +72,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(86)))), ((int)(((byte)(103)))));
+            this.panel1.Controls.Add(this.requestViewBtn);
             this.panel1.Controls.Add(this.customerBtn);
             this.panel1.Controls.Add(this.editClassBtn);
             this.panel1.Controls.Add(this.leaseBtn);
@@ -83,7 +85,7 @@
             // 
             // customerBtn
             // 
-            this.customerBtn.Location = new System.Drawing.Point(3, 326);
+            this.customerBtn.Location = new System.Drawing.Point(2, 326);
             this.customerBtn.Name = "customerBtn";
             this.customerBtn.Size = new System.Drawing.Size(247, 29);
             this.customerBtn.TabIndex = 11;
@@ -93,7 +95,7 @@
             // 
             // editClassBtn
             // 
-            this.editClassBtn.Location = new System.Drawing.Point(3, 272);
+            this.editClassBtn.Location = new System.Drawing.Point(2, 272);
             this.editClassBtn.Name = "editClassBtn";
             this.editClassBtn.Size = new System.Drawing.Size(247, 29);
             this.editClassBtn.TabIndex = 10;
@@ -103,7 +105,7 @@
             // 
             // leaseBtn
             // 
-            this.leaseBtn.Location = new System.Drawing.Point(3, 216);
+            this.leaseBtn.Location = new System.Drawing.Point(2, 216);
             this.leaseBtn.Name = "leaseBtn";
             this.leaseBtn.Size = new System.Drawing.Size(247, 29);
             this.leaseBtn.TabIndex = 9;
@@ -113,16 +115,18 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(86)))), ((int)(((byte)(103)))));
+            this.button2.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button2.Location = new System.Drawing.Point(3, 770);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(247, 29);
             this.button2.TabIndex = 8;
             this.button2.Text = "Logout";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // apartmentBtn
             // 
-            this.apartmentBtn.Location = new System.Drawing.Point(3, 164);
+            this.apartmentBtn.Location = new System.Drawing.Point(2, 164);
             this.apartmentBtn.Name = "apartmentBtn";
             this.apartmentBtn.Size = new System.Drawing.Size(247, 29);
             this.apartmentBtn.TabIndex = 7;
@@ -168,6 +172,16 @@
             this.refreshBtn.UseVisualStyleBackColor = false;
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
+            // requestViewBtn
+            // 
+            this.requestViewBtn.Location = new System.Drawing.Point(2, 378);
+            this.requestViewBtn.Name = "requestViewBtn";
+            this.requestViewBtn.Size = new System.Drawing.Size(247, 29);
+            this.requestViewBtn.TabIndex = 12;
+            this.requestViewBtn.Text = "Extention Requests";
+            this.requestViewBtn.UseVisualStyleBackColor = true;
+            this.requestViewBtn.Click += new System.EventHandler(this.requestViewBtn_Click);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -205,5 +219,6 @@
         private Button editClassBtn;
         private Button refreshBtn;
         private Button customerBtn;
+        private Button requestViewBtn;
     }
 }

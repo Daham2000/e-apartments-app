@@ -47,7 +47,29 @@ namespace e_apartments_app.db.dao
 
         public override AgreementModel getSingle(string id)
         {
-            throw new NotImplementedException();
+            AgreementModel agreementModel = new AgreementModel();
+            try
+            {
+                DbController dbController = new DbController();
+                dbController.init();
+                SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM Agreements where AgreeID='" + id + "';");
+                if (readerAllData.Read() & readerAllData != null)
+                {
+                    agreementModel.AgreeID = readerAllData["agreeID"].ToString();
+                    agreementModel.AID = readerAllData["aID"].ToString();
+                    agreementModel.CID = readerAllData["cID"].ToString();
+                    agreementModel.StartDate = readerAllData["startDate"].ToString();
+                    agreementModel.EndDate = readerAllData["endDate"].ToString();
+                    agreementModel.IntDepositPaid = Convert.ToInt32(readerAllData["intDepositPaid"]);
+                    agreementModel.Amount = float.Parse(readerAllData["amount"].ToString());
+                    agreementModel.DueBalance = float.Parse(readerAllData["dueBalance"].ToString());
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Exception: " + e.ToString());
+            }
+            return agreementModel;
         }
 
         public override void update(string id, AgreementModel model)
