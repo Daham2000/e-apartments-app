@@ -1,5 +1,6 @@
 ﻿using e_apartments_app.Controllers;
 using e_apartments_app.db.Model;
+using e_apartments_app.util;
 using e_apartments_app.View;
 
 namespace e_apartments_app.ui
@@ -39,9 +40,19 @@ namespace e_apartments_app.ui
                 bool loginSuccess = rootController.loginAction(user);
                 if (loginSuccess)
                 {
-                    AdminDashboard adminDashboard = new AdminDashboard();
-                    adminDashboard.Show();
-                    this.Hide();
+                    AdminManage admin = new AdminManage();
+                    if (user.UserName == admin.getAdminUserName())
+                    {
+                        AdminDashboard adminDashboard = new AdminDashboard();
+                        adminDashboard.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        CustomerDashboard customerDashboard = new CustomerDashboard(rootController.getCustomerModel());
+                        customerDashboard.Show();
+                        this.Hide();
+                    }
                 }
                 else
                 {

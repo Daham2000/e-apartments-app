@@ -50,6 +50,29 @@ namespace e_apartments_app.db.dao
                 return list;
         }
 
+        public List<AgreementModel> GetUserAgreement(string id)
+        {
+            DbController dbController = new DbController();
+            dbController.init();
+            List<AgreementModel> list = new List<AgreementModel>();
+
+            SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM Agreements where cID='" + id + "';");
+            while (readerAllData.Read())
+            {
+                AgreementModel agreementModel = new AgreementModel();
+                agreementModel.AgreeID = readerAllData["agreeID"].ToString();
+                agreementModel.AID = readerAllData["aID"].ToString();
+                agreementModel.CID = readerAllData["cID"].ToString();
+                agreementModel.StartDate = readerAllData["startDate"].ToString();
+                agreementModel.EndDate = readerAllData["endDate"].ToString();
+                agreementModel.IntDepositPaid = Convert.ToInt32(readerAllData["intDepositPaid"]);
+                agreementModel.Amount = float.Parse(readerAllData["amount"].ToString());
+                agreementModel.DueBalance = float.Parse(readerAllData["dueBalance"].ToString());
+                list.Add(agreementModel);
+            }
+            return list;
+        }
+
         public override AgreementModel GetSingle(string id)
         {
             AgreementModel agreementModel = new AgreementModel();
@@ -57,7 +80,7 @@ namespace e_apartments_app.db.dao
             {
                 DbController dbController = new DbController();
                 dbController.init();
-                SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM Agreements where AgreeID='" + id + "';");
+                SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM Agreements where cID='" + id + "';");
                 if (readerAllData.Read() & readerAllData != null)
                 {
                     agreementModel.AgreeID = readerAllData["agreeID"].ToString();

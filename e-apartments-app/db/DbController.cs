@@ -204,6 +204,7 @@ namespace e_apartments_app.db
             }
             catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 Console.WriteLine("Exception selectData: " + e.ToString());
                 return null;
             }

@@ -1,5 +1,6 @@
 ﻿using e_apartments_app.db.dao;
 using e_apartments_app.db.Model;
+using e_apartments_app.ui;
 using Microsoft.VisualBasic;
 
 namespace e_apartments_app.View
@@ -201,6 +202,20 @@ namespace e_apartments_app.View
                 MessageBox.Show("Error occured...  " + ee);
             }
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void reportBtn_Click(object sender, EventArgs e)
+        {
+            titleLabel.Text = "Admin Reports";
+            refreshBtn.Hide();
+            apartmentListFlow.Controls.Clear();
         }
     }
 }

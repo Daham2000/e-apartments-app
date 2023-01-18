@@ -61,6 +61,33 @@ namespace e_apartments_app.db.dao
             throw new NotImplementedException();
         }
 
+        public CustomerModel UserLogin(UserModel user)
+        {
+            CustomerModel customerModel = new CustomerModel();
+            try
+            {
+                DbController dbController = new DbController();
+                dbController.init();
+                SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM Customers where username='" + user.UserName + "' AND password='" + user.Password + "';");
+                if (readerAllData.Read())
+                {
+                    customerModel.CID = readerAllData["cID"].ToString();
+                    customerModel.Name = readerAllData["name"].ToString();
+                    customerModel.Username = readerAllData["username"].ToString();
+                    customerModel.Password = readerAllData["password"].ToString();
+                    customerModel.Address = readerAllData["address"].ToString();
+                    customerModel.NIC1 = readerAllData["NIC"].ToString();
+                    customerModel.ContactDetails = Convert.ToInt32(readerAllData["contactDetails"]);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                throw new Exception("Exception: " + e.ToString());
+            }
+            return customerModel;
+        }
+
         public override void Update(string id, CustomerModel model)
         {
             try

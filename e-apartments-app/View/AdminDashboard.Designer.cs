@@ -42,6 +42,7 @@
             this.apartmentListFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.refreshBtn = new System.Windows.Forms.Button();
+            this.reportBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.apartmentListFlow.SuspendLayout();
@@ -72,6 +73,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(86)))), ((int)(((byte)(103)))));
+            this.panel1.Controls.Add(this.reportBtn);
             this.panel1.Controls.Add(this.requestViewBtn);
             this.panel1.Controls.Add(this.customerBtn);
             this.panel1.Controls.Add(this.editClassBtn);
@@ -133,6 +135,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Logout";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // apartmentBtn
             // 
@@ -182,6 +185,16 @@
             this.refreshBtn.UseVisualStyleBackColor = false;
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
+            // reportBtn
+            // 
+            this.reportBtn.Location = new System.Drawing.Point(2, 425);
+            this.reportBtn.Name = "reportBtn";
+            this.reportBtn.Size = new System.Drawing.Size(247, 29);
+            this.reportBtn.TabIndex = 13;
+            this.reportBtn.Text = "Check Reports";
+            this.reportBtn.UseVisualStyleBackColor = true;
+            this.reportBtn.Click += new System.EventHandler(this.reportBtn_Click);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -220,5 +233,6 @@
         private Button refreshBtn;
         private Button customerBtn;
         private Button requestViewBtn;
+        private Button reportBtn;
     }
 }
