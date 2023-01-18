@@ -79,5 +79,28 @@ namespace e_apartments_app.db.dao
                 throw new Exception("Exception: " + e);
             }
         }
+
+        public List<DependentsModel> GetAllDependents() {
+            List<DependentsModel> list = new List<DependentsModel>();
+            try
+            {
+                DbController dbController = new DbController();
+                dbController.init();
+                SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM Dependents;");
+                while (readerAllData.Read())
+                {
+                    DependentsModel model = new DependentsModel();
+                    model.CID = readerAllData["cID"].ToString();
+                    model.Relation = readerAllData["relation"].ToString();
+                    model.Name = readerAllData["name"].ToString();
+                    list.Add(model);
+                }
+                return list;
+            }
+            catch (Exception e)
+            {
+                return list;
+            }
+        }
     }
 }

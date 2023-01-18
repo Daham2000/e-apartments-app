@@ -32,6 +32,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.requestViewBtn = new System.Windows.Forms.Button();
             this.customerBtn = new System.Windows.Forms.Button();
             this.editClassBtn = new System.Windows.Forms.Button();
             this.leaseBtn = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@
             this.apartmentListFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.refreshBtn = new System.Windows.Forms.Button();
-            this.requestViewBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.apartmentListFlow.SuspendLayout();
@@ -82,6 +82,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 840);
             this.panel1.TabIndex = 6;
+            // 
+            // requestViewBtn
+            // 
+            this.requestViewBtn.Location = new System.Drawing.Point(2, 378);
+            this.requestViewBtn.Name = "requestViewBtn";
+            this.requestViewBtn.Size = new System.Drawing.Size(247, 29);
+            this.requestViewBtn.TabIndex = 12;
+            this.requestViewBtn.Text = "Extention Requests";
+            this.requestViewBtn.UseVisualStyleBackColor = true;
+            this.requestViewBtn.Click += new System.EventHandler(this.requestViewBtn_Click);
             // 
             // customerBtn
             // 
@@ -171,16 +181,6 @@
             this.refreshBtn.Text = "Refresh";
             this.refreshBtn.UseVisualStyleBackColor = false;
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
-            // 
-            // requestViewBtn
-            // 
-            this.requestViewBtn.Location = new System.Drawing.Point(2, 378);
-            this.requestViewBtn.Name = "requestViewBtn";
-            this.requestViewBtn.Size = new System.Drawing.Size(247, 29);
-            this.requestViewBtn.TabIndex = 12;
-            this.requestViewBtn.Text = "Extention Requests";
-            this.requestViewBtn.UseVisualStyleBackColor = true;
-            this.requestViewBtn.Click += new System.EventHandler(this.requestViewBtn_Click);
             // 
             // AdminDashboard
             // 

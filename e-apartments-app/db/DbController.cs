@@ -13,7 +13,6 @@ namespace e_apartments_app.db
         SqlConnection connection;
         public DbController()
         {
-
         }
 
         public bool init()
@@ -139,6 +138,11 @@ namespace e_apartments_app.db
             query = "insert into Customers values ('cID0002', 'Kasun Silva', 'moli', '12345', 'Colombo Dehiwala', '200000302222', 0772323111);";
             runQuery(query);
             query = "insert into Customers values ('cID0003', 'Gemoes Perera', 'gomes', '12345', 'Colombo Dehiwala', '200000302222', 0772323111);";
+            runQuery(query);
+
+            query = "insert into Dependents values ('D00001', 'cID0001', 'Bother', 'Kevin Seek');";
+            runQuery(query);
+            query = "insert into Dependents values ('D00002', 'cID0001', 'Sister', 'Jenna Seek');";
             runQuery(query);
 
             query = "insert into Agreements values ('agg0001', 'A000112', 'cID0001', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 10000, 0);";

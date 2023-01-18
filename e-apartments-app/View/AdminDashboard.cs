@@ -18,6 +18,7 @@ namespace e_apartments_app.View
         List<AgreementModel> agreementModels = new List<AgreementModel>();
         List<ApartmentModel> apartments = new List<ApartmentModel>();
         List<ExtentionRequestsModel> requestList = new List<ExtentionRequestsModel>();
+        List<DependentsModel> dependentsModels = new List<DependentsModel>();
 
         public AdminDashboard()
         {
@@ -126,8 +127,23 @@ namespace e_apartments_app.View
         private void customerBtn_Click(object sender, EventArgs e)
         {
             titleLabel.Text = "Manage Customer Details";
-            refreshBtn.Hide();
+            refreshBtn.Show();
             apartmentListFlow.Controls.Clear();
+            if(dependentsModels.Count == 0)
+            {
+                dependentsModels = customerDao.GetAllDependents();
+            }
+
+            CustomerCard[] customerCards = new CustomerCard[customerModels.Count];
+            for (int i = 0; i < customerModels.Count; i++)
+            {
+                if (customerModels[i] != null)
+                {
+                    List<DependentsModel> dependantList = dependentsModels.Where(s => s.CID == customerModels[i].CID).ToList();
+                    customerCards[i] = new CustomerCard(customerModels[i], dependantList);
+                    apartmentListFlow.Controls.Add(customerCards[i]);
+                }
+            }
         }
 
         private void requestViewBtn_Click(object sender, EventArgs e)
