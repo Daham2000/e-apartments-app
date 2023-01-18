@@ -12,7 +12,19 @@ namespace e_apartments_app.db.dao
     {
         public override void Add(CustomerModel model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DbController dbController = new DbController();
+                dbController.init();
+                dbController.runQueryUpdate("insert into Customers values ('" + model.CID + "', '" + model.Name
+                    + "', '" + model.Username + "', '" + model.Password + "', '" + model.Address + "' " +
+                    ", '" + model.NIC1 + "' , '" + model.ContactDetails + "' );");
+                dbController.closeConnection();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Exception: " + e);
+            }
         }
 
         public override List<CustomerModel> getAll()
@@ -54,12 +66,12 @@ namespace e_apartments_app.db.dao
             {
                 DbController dbController = new DbController();
                 dbController.init();
-                dbController.runQuery("update Customers set name = " +
-                    model.Name + ", username = " + model.Username + ", password = " + model.Password +
-                    "address = " + model.Address +
-                    "NIC = " + model.NIC1 +
-                    "contactDetails = " + model.ContactDetails +
-                   " where cID = " + model.CID + ";");
+                dbController.runQueryUpdate("update Customers set name = '" +
+                    model.Name + "', username = '" + model.Username + "', password = '" + model.Password +
+                    "', address = '" + model.Address +
+                    "', NIC = '" + model.NIC1 +
+                    "', contactDetails = '" + model.ContactDetails +
+                   "' where cID = '" + model.CID + "';");
                 dbController.closeConnection();
             }
             catch (Exception e)

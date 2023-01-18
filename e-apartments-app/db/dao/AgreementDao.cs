@@ -12,7 +12,19 @@ namespace e_apartments_app.db.dao
     {
         public override void Add(AgreementModel model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DbController dbController = new DbController();
+                dbController.init();
+                dbController.runQueryUpdate("insert into Agreements values ('" + model.AgreeID + "', '" + model.AID
+                    + "', '" + model.CID + "', '" + model.StartDate + "', '" + model.EndDate + "' " +
+                    ", '" + model.IntDepositPaid + "' , '" + model.Amount + "' , '" + model.DueBalance + "' );");
+                dbController.closeConnection();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Exception: " + e);
+            }
         }
 
         public override List<AgreementModel> getAll()
