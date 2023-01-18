@@ -68,7 +68,7 @@ namespace e_apartments_app.View
             agreementModel.CID = customer.CID;
             agreementModel.StartDate = startDateBox.Value.ToString("dddd, dd MMMM yyyy");
             agreementModel.EndDate = endDateBox.Value.ToString("dddd, dd MMMM yyyy");
-            if(endDateBox.Text == "Paid")
+            if(depositStatus.Text == "Paid")
             {
                 agreementModel.IntDepositPaid = 1;
             }

@@ -75,6 +75,9 @@ namespace e_apartments_app.View
                 }
             }
 
+            buildingBox.Text = apartmentModel.BID;
+            classBox.Text = appartmentClassModel.ClassName;
+            occupantBox.Text = apartmentModel.CurrentOccupant;
             depositPrice.Text = apartmentModel.IntDeposit.ToString();
             monthlyPrice.Text = apartmentModel.Monthly.ToString();
         }

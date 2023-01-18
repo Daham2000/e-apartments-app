@@ -22,8 +22,6 @@ namespace e_apartments_app.db.dao
             List<AgreementModel> list = new List<AgreementModel>();
 
             SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM Agreements;");
-            if (readerAllData.Read())
-            {
                 while (readerAllData.Read())
                 {
                     AgreementModel agreementModel = new AgreementModel();
@@ -38,11 +36,6 @@ namespace e_apartments_app.db.dao
                     list.Add(agreementModel);
                 }
                 return list;
-            }
-            else
-            {
-                return list;
-            }
         }
 
         public override AgreementModel getSingle(string id)

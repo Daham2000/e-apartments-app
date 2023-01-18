@@ -18,12 +18,20 @@ namespace e_apartments_app.db
 
         public bool init()
         {
-            string connetionString = @"Data Source=LAPTOP-4TJS1BE6;Integrated security=true; User ID=LAPTOP-4TJS1BE6\acer;Password=";
-            connection = new SqlConnection(connetionString);
-            connection.Open();
-            initDb();
-            seedInitData();
-            return true;
+            try {
+                string connetionString = @"Data Source=LAPTOP-4TJS1BE6;Integrated security=true; User ID=LAPTOP-4TJS1BE6\acer;Password=";
+                connection = new SqlConnection(connetionString);
+                connection.Open();
+                initDb();
+                seedInitData();
+                return true;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return false;
+            }
+
         }
 
         public void closeConnection()
@@ -148,6 +156,8 @@ namespace e_apartments_app.db
             query = "insert into ExtentionRequests values ('E00003', 'agg0005', 3, 1);";
             runQuery(query);
             query = "insert into ExtentionRequests values ('E00004', 'agg0005', 1, 0);";
+            runQuery(query);
+            query = "insert into ExtentionRequests values ('E00005', 'agg0003', 1, 2);";
             runQuery(query);
         }
 

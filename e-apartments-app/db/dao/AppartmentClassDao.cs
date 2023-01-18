@@ -62,8 +62,6 @@ namespace e_apartments_app.db.dao
                 dbController.init();
 
                 SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM ApartmentsClass;");
-                if (readerAllData.Read())
-                {
                     while (readerAllData.Read())
                     {
                         AppartmentClassModel model = new AppartmentClassModel();
@@ -76,7 +74,6 @@ namespace e_apartments_app.db.dao
                         model.NumOfServantBath = Convert.ToInt32(readerAllData["numOfServantBath"]);
                         list.Add(model);
                     }
-                }
                 return list;
             }
             catch(Exception e)

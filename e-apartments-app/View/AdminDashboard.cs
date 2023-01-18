@@ -25,6 +25,7 @@ namespace e_apartments_app.View
             appartmentClasses = appartmentClassDao.getAll();
             customerModels = customerDao.getAll();
             buildingModels = buildingDao.getAll();
+            agreementModels = agreementDao.getAll();
             populateApartments();
         }
 
@@ -134,22 +135,27 @@ namespace e_apartments_app.View
             titleLabel.Text = "Lease Extention Requests";
             refreshBtn.Hide();
             apartmentListFlow.Controls.Clear();
-
-            if (requestList.Count == 0)
-            {
-                requestList = extentionRequestsDao.getAll();
-            }
-            ExtentionRequestView[] extentionRequestViews = new ExtentionRequestView[requestList.Count];
-            for (int i = 0; i < requestList.Count; i++)
-            {
-                if (agreementModels[i] != null)
+            try {
+                if (requestList.Count == 0)
                 {
-                    var agreementModel = agreementModels.First(s => s.AgreeID == requestList[i].AgreeID);
-                    var customerModel = customerModels.First(s => s.CID == agreementModel.CID);
-                    extentionRequestViews[i] = new ExtentionRequestView(agreementModels[i], customerModel, new ExtentionRequestsModel(), apartments, customerModels, requestList[i]);
-                    apartmentListFlow.Controls.Add(extentionRequestViews[i]);
+                    requestList = extentionRequestsDao.getAll();
                 }
+                ExtentionRequestView[] extentionRequestViews = new ExtentionRequestView[requestList.Count];
+                for (int i = 0; i < requestList.Count; i++)
+                {
+                    if (requestList[i] != null)
+                    {
+                        var agreementModel = agreementModels.First(s => s.AgreeID == requestList[i].AgreeID);
+                        var customerModel = customerModels.First(s => s.CID == agreementModel.CID);
+                        extentionRequestViews[i] = new ExtentionRequestView(agreementModel, customerModel, new ExtentionRequestsModel(), apartments, customerModels, requestList[i]);
+                        apartmentListFlow.Controls.Add(extentionRequestViews[i]);
+                    }
+                }
+            } catch (Exception ee)
+            {
+                MessageBox.Show("Error occured...  " + ee);
             }
+            
         }
     }
 }

@@ -42,8 +42,6 @@ namespace e_apartments_app.db.dao
                 dbController.init();
 
                 SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM Buildings;");
-                if (readerAllData.Read())
-                {
                     while (readerAllData.Read())
                     {
                         BuildingModel buildingModel = new BuildingModel();
@@ -53,7 +51,6 @@ namespace e_apartments_app.db.dao
                         buildingModel.NumOfFloors = Convert.ToInt32(readerAllData["numOfFloors"]);
                         list.Add(buildingModel);
                     }
-                }
                 return list;
             }
             catch (Exception e)

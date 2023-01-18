@@ -23,8 +23,6 @@ namespace e_apartments_app.db.dao
                 DbController dbController = new DbController();
                 dbController.init();
                 SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM Customers;");
-                if (readerAllData.Read())
-                {
                     while (readerAllData.Read())
                     {
                         CustomerModel customerModel = new CustomerModel();
@@ -37,7 +35,6 @@ namespace e_apartments_app.db.dao
                         customerModel.ContactDetails = Convert.ToInt32(readerAllData["contactDetails"]);
                         list.Add(customerModel);
                     }
-                }
                 return list;
             }
             catch (Exception e)

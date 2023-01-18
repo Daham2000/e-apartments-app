@@ -1,4 +1,5 @@
-﻿using e_apartments_app.db.Model;
+﻿using e_apartments_app.db.dao;
+using e_apartments_app.db.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace e_apartments_app.View
         ExtentionRequestsModel extentionRequestsModel = new ExtentionRequestsModel();
         List<ApartmentModel> apartments = new List<ApartmentModel>();
         List<CustomerModel> customerModels;
+        ExtentionRequestsDao requestsDao= new ExtentionRequestsDao();
 
         public ExtentionRequestView(AgreementModel agreementModel, CustomerModel customerModel,
             ExtentionRequestsModel requestsModel, List<ApartmentModel> apartments, 
@@ -49,32 +51,35 @@ namespace e_apartments_app.View
             {
                 acceptedLabel.Text = "Accepted";
                 acceptedLabel.ForeColor = System.Drawing.Color.FromArgb(0, 192, 0);
+                rejectBtn.Hide();
+                actBtn.Hide();
             }
             if (extentionRequestsModel.Accepted == 2)
             {
                 acceptedLabel.Text = "Pending";
                 acceptedLabel.ForeColor = System.Drawing.Color.Orange;
+                rejectBtn.Show();
+                actBtn.Show();
             }
             if (extentionRequestsModel.Accepted == 0)
             {
-                acceptedLabel.Text = "Reject";
+                acceptedLabel.Text = "Rejected";
                 acceptedLabel.ForeColor = System.Drawing.Color.Red;
+                rejectBtn.Hide();
+                actBtn.Hide();
             }
         }
 
-        private void ExtentionRequestView_Load(object sender, EventArgs e)
+        private void rejectBtn_Click(object sender, EventArgs e)
         {
-
+            extentionRequestsModel.Accepted = 0;
+            requestsDao.update(extentionRequestsModel.AgreeID, extentionRequestsModel);
         }
 
-        private void editBtn_Click(object sender, EventArgs e)
+        private void actBtn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            extentionRequestsModel.Accepted = 1;
+            requestsDao.update(extentionRequestsModel.AgreeID, extentionRequestsModel);
         }
     }
 }

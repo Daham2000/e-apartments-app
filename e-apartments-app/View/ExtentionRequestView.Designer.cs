@@ -38,9 +38,10 @@
             this.apartmentID = new System.Windows.Forms.Label();
             this.agreeId = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.monthsLabel = new System.Windows.Forms.Label();
-            this.editBtn = new System.Windows.Forms.Button();
+            this.actBtn = new System.Windows.Forms.Button();
             this.acceptedLabel = new System.Windows.Forms.Label();
+            this.monthsLabel = new System.Windows.Forms.Label();
+            this.rejectBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,15 +138,38 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.panel1.Controls.Add(this.actBtn);
+            this.panel1.Controls.Add(this.rejectBtn);
             this.panel1.Controls.Add(this.acceptedLabel);
             this.panel1.Controls.Add(this.monthsLabel);
-            this.panel1.Controls.Add(this.editBtn);
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel1.Location = new System.Drawing.Point(0, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(730, 250);
             this.panel1.TabIndex = 19;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // actBtn
+            // 
+            this.actBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.actBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.actBtn.Location = new System.Drawing.Point(493, 208);
+            this.actBtn.Name = "actBtn";
+            this.actBtn.Size = new System.Drawing.Size(94, 29);
+            this.actBtn.TabIndex = 22;
+            this.actBtn.Text = "Accept";
+            this.actBtn.UseVisualStyleBackColor = false;
+            this.actBtn.Click += new System.EventHandler(this.actBtn_Click);
+            // 
+            // acceptedLabel
+            // 
+            this.acceptedLabel.AutoSize = true;
+            this.acceptedLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.acceptedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.acceptedLabel.Location = new System.Drawing.Point(493, 176);
+            this.acceptedLabel.Name = "acceptedLabel";
+            this.acceptedLabel.Size = new System.Drawing.Size(72, 20);
+            this.acceptedLabel.TabIndex = 21;
+            this.acceptedLabel.Text = "Accepted";
             // 
             // monthsLabel
             // 
@@ -158,28 +182,17 @@
             this.monthsLabel.TabIndex = 20;
             this.monthsLabel.Text = "Requested Months: 2";
             // 
-            // editBtn
+            // rejectBtn
             // 
-            this.editBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.editBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.editBtn.Location = new System.Drawing.Point(619, 208);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(94, 29);
-            this.editBtn.TabIndex = 0;
-            this.editBtn.Text = "Accept";
-            this.editBtn.UseVisualStyleBackColor = false;
-            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
-            // 
-            // acceptedLabel
-            // 
-            this.acceptedLabel.AutoSize = true;
-            this.acceptedLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.acceptedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.acceptedLabel.Location = new System.Drawing.Point(493, 176);
-            this.acceptedLabel.Name = "acceptedLabel";
-            this.acceptedLabel.Size = new System.Drawing.Size(72, 20);
-            this.acceptedLabel.TabIndex = 21;
-            this.acceptedLabel.Text = "Accepted";
+            this.rejectBtn.BackColor = System.Drawing.Color.Brown;
+            this.rejectBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rejectBtn.Location = new System.Drawing.Point(593, 208);
+            this.rejectBtn.Name = "rejectBtn";
+            this.rejectBtn.Size = new System.Drawing.Size(94, 29);
+            this.rejectBtn.TabIndex = 0;
+            this.rejectBtn.Text = "Reject";
+            this.rejectBtn.UseVisualStyleBackColor = false;
+            this.rejectBtn.Click += new System.EventHandler(this.rejectBtn_Click);
             // 
             // ExtentionRequestView
             // 
@@ -197,7 +210,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "ExtentionRequestView";
             this.Size = new System.Drawing.Size(729, 276);
-            this.Load += new System.EventHandler(this.ExtentionRequestView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -217,8 +229,9 @@
         private Label apartmentID;
         private Label agreeId;
         private Panel panel1;
-        private Button editBtn;
+        private Button rejectBtn;
         private Label monthsLabel;
         private Label acceptedLabel;
+        private Button actBtn;
     }
 }

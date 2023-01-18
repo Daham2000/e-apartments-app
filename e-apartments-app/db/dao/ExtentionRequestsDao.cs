@@ -27,10 +27,8 @@ namespace e_apartments_app.db.dao
             dbController.init();
             List<ExtentionRequestsModel> list = new List<ExtentionRequestsModel>();
 
-            SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM ExtentionRequests;");
+            SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM ExtentionRequests ORDER BY accepted DESC;");
             dbController.init();
-            if (readerAllData.Read())
-            {
                 while (readerAllData.Read())
                 {
                     ExtentionRequestsModel model = new ExtentionRequestsModel();
@@ -41,11 +39,6 @@ namespace e_apartments_app.db.dao
                     list.Add(model);
                 }
                 return list;
-            }
-            else
-            {
-                return list;
-            }
         }
 
         public override ExtentionRequestsModel getSingle(string id)

@@ -31,9 +31,8 @@ namespace e_apartments_app.db.dao
 
             SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM Apartments;");
             dbController.init();
-            if (readerAllData.Read())
-            {
-                while (readerAllData.Read())
+            int i = 0;
+            while (readerAllData.Read())
                 {
                     ApartmentModel apartmentModel = new ApartmentModel();
                     apartmentModel.AID = readerAllData["aID"].ToString();
@@ -46,13 +45,9 @@ namespace e_apartments_app.db.dao
                     apartmentModel.IntDeposit = Convert.ToSingle(readerAllData["intDeposit"]);
                     apartmentModel.Monthly = Convert.ToSingle(readerAllData["monthly"]);
                     list.Add(apartmentModel);
-                }
-                return list;
-            }
-            else
-            {
-                return list;
-            }
+                    i += 1;
+              }
+             return list;
         }
 
         public override ApartmentModel getSingle(string id)
