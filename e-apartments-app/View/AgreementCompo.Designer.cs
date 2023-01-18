@@ -38,6 +38,8 @@
             this.amount = new System.Windows.Forms.Label();
             this.dueLable = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.editBtn = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // agreeId
@@ -133,11 +135,24 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.panel1.Controls.Add(this.editBtn);
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel1.Location = new System.Drawing.Point(1, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(737, 205);
             this.panel1.TabIndex = 9;
+            // 
+            // editBtn
+            // 
+            this.editBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.editBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.editBtn.Location = new System.Drawing.Point(630, 156);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(94, 29);
+            this.editBtn.TabIndex = 0;
+            this.editBtn.Text = "Edit";
+            this.editBtn.UseVisualStyleBackColor = false;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // AgreementCompo
             // 
@@ -156,6 +171,7 @@
             this.Name = "AgreementCompo";
             this.Size = new System.Drawing.Size(740, 226);
             this.Load += new System.EventHandler(this.AgreementCompo_Load);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,5 +189,6 @@
         private Label amount;
         private Label dueLable;
         private Panel panel1;
+        private Button editBtn;
     }
 }

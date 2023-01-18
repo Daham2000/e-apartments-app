@@ -18,6 +18,8 @@ namespace e_apartments_app.View
         bool isLeaseDetails = false;
         bool isCustomerDetails = false;
         bool isEditClass = false;
+        List<ApartmentModel> apartments = new List<ApartmentModel>();
+
         public AdminDashboard()
         {
             InitializeComponent();
@@ -38,7 +40,10 @@ namespace e_apartments_app.View
 
             AppartmentClassModel appartmentClass = new AppartmentClassModel();
             BuildingModel buildingModel = new BuildingModel();
-            List<ApartmentModel> apartments = apartmentDao.getAll();
+            if(apartments.Count == 0)
+            {
+                apartments = apartmentDao.getAll();
+            }
             ApartmentComponent[] apartmentComponents = new ApartmentComponent[apartments.Count];
 
             for (int i=0; i < apartments.Count ; i++)
@@ -98,7 +103,7 @@ namespace e_apartments_app.View
                 if (agreementModels[i] != null)
                 {
                     var customerModel = customerModels.First(s => s.CID == agreementModels[i].CID);
-                    agreementCompos[i] = new AgreementCompo(agreementModels[i], customerModel, new ExtentionRequestsModel());
+                    agreementCompos[i] = new AgreementCompo(agreementModels[i], customerModel, new ExtentionRequestsModel(), apartments, customerModels);
                     apartmentListFlow.Controls.Add(agreementCompos[i]);
                 }
             }
@@ -107,8 +112,8 @@ namespace e_apartments_app.View
         private void apartmentBtn_Click(object sender, EventArgs e)
         {
             titleLabel.Text = "Apartment details";
+            apartmentListFlow.Controls.Clear();
             refreshBtn.Show();
-            apartmentListFlow.Show();
             populateApartments();
         }
 

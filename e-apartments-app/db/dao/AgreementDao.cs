@@ -33,7 +33,7 @@ namespace e_apartments_app.db.dao
                     agreementModel.StartDate = readerAllData["startDate"].ToString();
                     agreementModel.EndDate = readerAllData["endDate"].ToString();
                     agreementModel.IntDepositPaid = Convert.ToInt32(readerAllData["intDepositPaid"]);
-                    agreementModel.Amount = float.Parse(readerAllData["intDepositPaid"].ToString());
+                    agreementModel.Amount = float.Parse(readerAllData["amount"].ToString());
                     agreementModel.DueBalance = float.Parse(readerAllData["dueBalance"].ToString());
                     list.Add(agreementModel);
                 }
@@ -52,7 +52,21 @@ namespace e_apartments_app.db.dao
 
         public override void update(string id, AgreementModel model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DbController dbController = new DbController();
+                dbController.init();
+                dbController.runQueryUpdate("update Agreements set aID = '" +
+                    model.AID + "', cID  ='" + model.CID + "', startDate = '" + model.StartDate +
+                    "', endDate = '" + model.EndDate + "', " +
+                    "intDepositPaid = '" + model.IntDepositPaid + "', amount = '" + model.Amount +
+                    "', dueBalance = '" + model.DueBalance + "' " + " where agreeID ='" + model.AgreeID + "';");
+                dbController.closeConnection();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Exception: " + e);
+            }
         }
     }
 }

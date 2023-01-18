@@ -131,6 +131,15 @@ namespace e_apartments_app.db
             query = "insert into Customers values ('cID0003', 'Gemoes Perera', 'gomes', '12345', 'Colombo Dehiwala', '200000302222', 0772323111);";
             runQuery(query);
 
+            query = "insert into Agreements values ('agg0001', 'A000112', 'cID0001', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 10000, 0);";
+            runQuery(query);
+            query = "insert into Agreements values ('agg0002', 'A00042', 'cID0002', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 10000, 0);";
+            runQuery(query);
+            query = "insert into Agreements values ('agg0003', 'A00032', 'cID0003', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 23000, 0);";
+            runQuery(query);
+            query = "insert into Agreements values ('agg0005', 'A00032', 'cID0003', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 20000, 0);";
+            runQuery(query);
+
         }
 
         public bool runQuery(string query)
@@ -152,6 +161,7 @@ namespace e_apartments_app.db
             {
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Data updated success...");
                 return true;
             }
             catch (Exception e)

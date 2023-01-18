@@ -114,6 +114,7 @@ namespace e_apartments_app.View
                 apartmentModel.Monthly = float.Parse(monthlyPrice.Text);
 
                 apartmentDao.update(apartmentModel.AID, apartmentModel);
+                MessageBox.Show("Date Updated Sucess...");
             } catch (Exception ee)
             {
                 MessageBox.Show(ee.ToString());
