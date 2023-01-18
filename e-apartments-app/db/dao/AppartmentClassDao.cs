@@ -6,7 +6,7 @@ namespace e_apartments_app.db.dao
 {
     internal class AppartmentClassDao : SuperDao<AppartmentClassModel>
     {
-        public override AppartmentClassModel getSingle(string id)
+        public override AppartmentClassModel GetSingle(string id)
         {
             AppartmentClassModel appartmentClassModel = new AppartmentClassModel();
             try
@@ -53,7 +53,7 @@ namespace e_apartments_app.db.dao
             }
         }
 
-        public override List<AppartmentClassModel> getAll()
+        public override List<AppartmentClassModel> GetAll()
         {
             List<AppartmentClassModel> list = new List<AppartmentClassModel>();
             try
@@ -82,7 +82,7 @@ namespace e_apartments_app.db.dao
             }
         }
 
-        public override void update(string id, AppartmentClassModel model)
+        public override void Update(string id, AppartmentClassModel model)
         {
             try
             {

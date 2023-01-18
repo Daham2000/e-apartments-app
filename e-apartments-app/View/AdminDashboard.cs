@@ -23,10 +23,10 @@ namespace e_apartments_app.View
         public AdminDashboard()
         {
             InitializeComponent();
-            appartmentClasses = appartmentClassDao.getAll();
-            customerModels = customerDao.getAll();
-            buildingModels = buildingDao.getAll();
-            agreementModels = agreementDao.getAll();
+            appartmentClasses = appartmentClassDao.GetAll();
+            customerModels = customerDao.GetAll();
+            buildingModels = buildingDao.GetAll();
+            agreementModels = agreementDao.GetAll();
             populateApartments();
         }
 
@@ -42,7 +42,7 @@ namespace e_apartments_app.View
             BuildingModel buildingModel = new BuildingModel();
             if(apartments.Count == 0)
             {
-                apartments = apartmentDao.getAll();
+                apartments = apartmentDao.GetAll();
             }
             ApartmentComponent[] apartmentComponents = new ApartmentComponent[apartments.Count];
 
@@ -88,7 +88,7 @@ namespace e_apartments_app.View
             if(titleLabel.Text == "Manage Customer Details")
             {
                 dependentsModels = customerDao.GetAllDependents();
-                customerModels = customerDao.getAll();
+                customerModels = customerDao.GetAll();
                 loadCustomerDetails();
             }
             else
@@ -104,7 +104,7 @@ namespace e_apartments_app.View
             apartmentListFlow.Controls.Clear();
             if (agreementModels.Count == 0)
             {
-                agreementModels = agreementDao.getAll();
+                agreementModels = agreementDao.GetAll();
             }
             AgreementCompo[] agreementCompos = new AgreementCompo[agreementModels.Count];
             for (int i = 0; i < agreementModels.Count; i++)
@@ -131,6 +131,21 @@ namespace e_apartments_app.View
             titleLabel.Text = "Edit Apartment Class Details";
             refreshBtn.Hide();
             apartmentListFlow.Controls.Clear();
+
+            if (appartmentClasses.Count == 0)
+            {
+                appartmentClasses = appartmentClassDao.GetAll();
+            }
+            EditClassView[] editClassViews = new EditClassView[appartmentClasses.Count];
+            for (int i = 0; i < appartmentClasses.Count; i++)
+            {
+                if (appartmentClasses[i] != null)
+                {
+                    var customerModel = customerModels.First(s => s.CID == agreementModels[i].CID);
+                    editClassViews[i] = new EditClassView(appartmentClasses[i]);
+                    apartmentListFlow.Controls.Add(editClassViews[i]);
+                }
+            }
         }
 
         private void customerBtn_Click(object sender, EventArgs e)
@@ -168,7 +183,7 @@ namespace e_apartments_app.View
             try {
                 if (requestList.Count == 0)
                 {
-                    requestList = extentionRequestsDao.getAll();
+                    requestList = extentionRequestsDao.GetAll();
                 }
                 ExtentionRequestView[] extentionRequestViews = new ExtentionRequestView[requestList.Count];
                 for (int i = 0; i < requestList.Count; i++)

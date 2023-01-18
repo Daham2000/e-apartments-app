@@ -33,7 +33,7 @@ namespace e_apartments_app.db.dao
             }
         }
 
-        public override List<BuildingModel> getAll()
+        public override List<BuildingModel> GetAll()
         {
             List<BuildingModel> list = new List<BuildingModel>();
             try
@@ -59,7 +59,7 @@ namespace e_apartments_app.db.dao
             }
         }
 
-        public override BuildingModel getSingle(string id)
+        public override BuildingModel GetSingle(string id)
         {
             BuildingModel buildingModel = new BuildingModel();
             try
@@ -82,7 +82,7 @@ namespace e_apartments_app.db.dao
             return buildingModel;
         }
 
-        public override void update(string id, BuildingModel model)
+        public override void Update(string id, BuildingModel model)
         {
             try
             {

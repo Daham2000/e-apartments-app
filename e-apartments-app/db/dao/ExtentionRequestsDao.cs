@@ -21,7 +21,7 @@ namespace e_apartments_app.db.dao
             }
         }
 
-        public override List<ExtentionRequestsModel> getAll()
+        public override List<ExtentionRequestsModel> GetAll()
         {
             DbController dbController = new DbController();
             dbController.init();
@@ -41,12 +41,12 @@ namespace e_apartments_app.db.dao
                 return list;
         }
 
-        public override ExtentionRequestsModel getSingle(string id)
+        public override ExtentionRequestsModel GetSingle(string id)
         {
             throw new NotImplementedException();
         }
 
-        public override void update(string id, ExtentionRequestsModel model)
+        public override void Update(string id, ExtentionRequestsModel model)
         {
             try
             {

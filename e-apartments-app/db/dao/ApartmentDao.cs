@@ -23,7 +23,7 @@ namespace e_apartments_app.db.dao
             }
         }
 
-        public override List<ApartmentModel> getAll()
+        public override List<ApartmentModel> GetAll()
         {
             DbController dbController = new DbController();
             dbController.init();
@@ -50,12 +50,12 @@ namespace e_apartments_app.db.dao
              return list;
         }
 
-        public override ApartmentModel getSingle(string id)
+        public override ApartmentModel GetSingle(string id)
         {
             throw new NotImplementedException();
         }
 
-        public override void update(string id, ApartmentModel model)
+        public override void Update(string id, ApartmentModel model)
         {
             try
             {

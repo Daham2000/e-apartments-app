@@ -78,7 +78,7 @@ namespace e_apartments_app.View
             }
             agreementModel.Amount = float.Parse(amountBox.Text);
             agreementModel.DueBalance = float.Parse(dueBox.Text);
-            agreementDao.update(agreementModel.AgreeID, agreementModel);
+            agreementDao.Update(agreementModel.AgreeID, agreementModel);
         }
     }
 }

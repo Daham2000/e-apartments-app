@@ -27,7 +27,7 @@ namespace e_apartments_app.db.dao
             }
         }
 
-        public override List<AgreementModel> getAll()
+        public override List<AgreementModel> GetAll()
         {
             DbController dbController = new DbController();
             dbController.init();
@@ -50,7 +50,7 @@ namespace e_apartments_app.db.dao
                 return list;
         }
 
-        public override AgreementModel getSingle(string id)
+        public override AgreementModel GetSingle(string id)
         {
             AgreementModel agreementModel = new AgreementModel();
             try
@@ -77,7 +77,7 @@ namespace e_apartments_app.db.dao
             return agreementModel;
         }
 
-        public override void update(string id, AgreementModel model)
+        public override void Update(string id, AgreementModel model)
         {
             try
             {

@@ -62,7 +62,7 @@ namespace e_apartments_app.View
             customerModel.Address = address.Text;
             customerModel.Name = name.Text;
             customerModel.ContactDetails = int.Parse(contactLabel.Text);
-            customerDao.update(customerModel.CID, customerModel);
+            customerDao.Update(customerModel.CID, customerModel);
         }
     }
 }

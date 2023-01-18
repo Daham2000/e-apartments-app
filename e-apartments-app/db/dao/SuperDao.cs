@@ -9,9 +9,9 @@ namespace e_apartments_app.db.dao
 {
     public abstract class SuperDao<T>
     {
-        public abstract T getSingle(string id);
+        public abstract T GetSingle(string id);
         public abstract void Add(T model);
-        public abstract void update(string id, T model);
-        public abstract List<T> getAll();
+        public abstract void Update(string id, T model);
+        public abstract List<T> GetAll();
     }
 }

@@ -28,7 +28,7 @@ namespace e_apartments_app.db.dao
             }
         }
 
-        public override List<CustomerModel> getAll()
+        public override List<CustomerModel> GetAll()
         {
             List<CustomerModel> list = new List<CustomerModel>();
             try
@@ -56,12 +56,12 @@ namespace e_apartments_app.db.dao
             }
         }
 
-        public override CustomerModel getSingle(string id)
+        public override CustomerModel GetSingle(string id)
         {
             throw new NotImplementedException();
         }
 
-        public override void update(string id, CustomerModel model)
+        public override void Update(string id, CustomerModel model)
         {
             try
             {

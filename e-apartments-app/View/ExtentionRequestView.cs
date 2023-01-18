@@ -73,13 +73,13 @@ namespace e_apartments_app.View
         private void rejectBtn_Click(object sender, EventArgs e)
         {
             extentionRequestsModel.Accepted = 0;
-            requestsDao.update(extentionRequestsModel.AgreeID, extentionRequestsModel);
+            requestsDao.Update(extentionRequestsModel.AgreeID, extentionRequestsModel);
         }
 
         private void actBtn_Click(object sender, EventArgs e)
         {
             extentionRequestsModel.Accepted = 1;
-            requestsDao.update(extentionRequestsModel.AgreeID, extentionRequestsModel);
+            requestsDao.Update(extentionRequestsModel.AgreeID, extentionRequestsModel);
         }
     }
 }
