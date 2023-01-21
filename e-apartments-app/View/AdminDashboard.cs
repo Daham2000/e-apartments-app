@@ -17,6 +17,7 @@ namespace e_apartments_app.View
         List<CustomerModel> customerModels;
         List<BuildingModel> buildingModels;
         List<AgreementModel> agreementModels = new List<AgreementModel>();
+        List<ApartmentModel> appartmentsAvailable = new List<ApartmentModel>();
         List<ApartmentModel> apartments = new List<ApartmentModel>();
         List<ExtentionRequestsModel> requestList = new List<ExtentionRequestsModel>();
         List<DependentsModel> dependentsModels = new List<DependentsModel>();
@@ -85,15 +86,21 @@ namespace e_apartments_app.View
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            apartmentListFlow.Controls.Clear();
             if(titleLabel.Text == "Manage Customer Details")
             {
+                apartmentListFlow.Controls.Clear();
                 dependentsModels = customerDao.GetAllDependents();
                 customerModels = customerDao.GetAll();
                 loadCustomerDetails();
             }
+            if(titleLabel.Text == "Lease Details")
+            {
+                AddLeaseView addLeaseView = new AddLeaseView(appartmentsAvailable, customerModels);
+                addLeaseView.Show();
+            }
             else
             {
+                apartmentListFlow.Controls.Clear();
                 populateApartments();
             }
         }
@@ -101,7 +108,8 @@ namespace e_apartments_app.View
         private void leaseBtn_Click(object sender, EventArgs e)
         {
             titleLabel.Text = "Lease Details";
-            refreshBtn.Hide();
+            refreshBtn.Text = "Add Lease";
+            appartmentsAvailable = apartmentDao.GetAllAvailable();
             apartmentListFlow.Controls.Clear();
             if (agreementModels.Count == 0)
             {
@@ -122,6 +130,7 @@ namespace e_apartments_app.View
         private void apartmentBtn_Click(object sender, EventArgs e)
         {
             titleLabel.Text = "Apartment details";
+            refreshBtn.Text = "Refresh";
             apartmentListFlow.Controls.Clear();
             refreshBtn.Show();
             populateApartments();
@@ -158,6 +167,7 @@ namespace e_apartments_app.View
         {
             titleLabel.Text = "Manage Customer Details";
             refreshBtn.Show();
+            refreshBtn.Text = "Refresh";
             apartmentListFlow.Controls.Clear();
             if (dependentsModels.Count == 0)
             {

@@ -30,14 +30,14 @@
         {
             this.agreeLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.locationLabel = new System.Windows.Forms.Label();
             this.apartmentBox = new System.Windows.Forms.ComboBox();
+            this.locationLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.customerBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.startDateBox = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.endDateBox = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,8 +45,8 @@
             this.depositStatus = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.amountBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dueBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -79,6 +79,14 @@
             this.panel1.Size = new System.Drawing.Size(404, 59);
             this.panel1.TabIndex = 3;
             // 
+            // apartmentBox
+            // 
+            this.apartmentBox.FormattingEnabled = true;
+            this.apartmentBox.Location = new System.Drawing.Point(156, 19);
+            this.apartmentBox.Name = "apartmentBox";
+            this.apartmentBox.Size = new System.Drawing.Size(234, 28);
+            this.apartmentBox.TabIndex = 4;
+            // 
             // locationLabel
             // 
             this.locationLabel.AutoSize = true;
@@ -87,14 +95,6 @@
             this.locationLabel.Size = new System.Drawing.Size(127, 20);
             this.locationLabel.TabIndex = 3;
             this.locationLabel.Text = "Select Apartment:";
-            // 
-            // apartmentBox
-            // 
-            this.apartmentBox.FormattingEnabled = true;
-            this.apartmentBox.Location = new System.Drawing.Point(156, 19);
-            this.apartmentBox.Name = "apartmentBox";
-            this.apartmentBox.Size = new System.Drawing.Size(234, 28);
-            this.apartmentBox.TabIndex = 4;
             // 
             // panel2
             // 
@@ -131,6 +131,13 @@
             this.panel3.Size = new System.Drawing.Size(404, 59);
             this.panel3.TabIndex = 6;
             // 
+            // startDateBox
+            // 
+            this.startDateBox.Location = new System.Drawing.Point(156, 17);
+            this.startDateBox.Name = "startDateBox";
+            this.startDateBox.Size = new System.Drawing.Size(234, 27);
+            this.startDateBox.TabIndex = 4;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -139,13 +146,6 @@
             this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Start Date:";
-            // 
-            // startDateBox
-            // 
-            this.startDateBox.Location = new System.Drawing.Point(156, 17);
-            this.startDateBox.Name = "startDateBox";
-            this.startDateBox.Size = new System.Drawing.Size(234, 27);
-            this.startDateBox.TabIndex = 4;
             // 
             // panel4
             // 
@@ -207,6 +207,13 @@
             this.panel6.Size = new System.Drawing.Size(404, 59);
             this.panel6.TabIndex = 7;
             // 
+            // amountBox
+            // 
+            this.amountBox.Location = new System.Drawing.Point(156, 19);
+            this.amountBox.Name = "amountBox";
+            this.amountBox.Size = new System.Drawing.Size(138, 27);
+            this.amountBox.TabIndex = 4;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -215,13 +222,6 @@
             this.label5.Size = new System.Drawing.Size(65, 20);
             this.label5.TabIndex = 3;
             this.label5.Text = "Amount:";
-            // 
-            // amountBox
-            // 
-            this.amountBox.Location = new System.Drawing.Point(156, 19);
-            this.amountBox.Name = "amountBox";
-            this.amountBox.Size = new System.Drawing.Size(138, 27);
-            this.amountBox.TabIndex = 4;
             // 
             // panel7
             // 
@@ -276,6 +276,7 @@
             this.Controls.Add(this.agreeLabel);
             this.Name = "EditAgreementView";
             this.Text = "Edit Agreement View";
+            this.Load += new System.EventHandler(this.EditAgreementView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

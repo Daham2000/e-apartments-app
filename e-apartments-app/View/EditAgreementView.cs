@@ -80,5 +80,10 @@ namespace e_apartments_app.View
             agreementModel.DueBalance = float.Parse(dueBox.Text);
             agreementDao.Update(agreementModel.AgreeID, agreementModel);
         }
+
+        private void EditAgreementView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

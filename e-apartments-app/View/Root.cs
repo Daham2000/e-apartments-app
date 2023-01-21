@@ -31,7 +31,7 @@ namespace e_apartments_app
                 timer1.Stop();
                 Login login = new Login();
                 AdminDashboard adminDashboard = new AdminDashboard();
-                login.Show();
+                adminDashboard.Show();
                 this.Hide();
             }
         }

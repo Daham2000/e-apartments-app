@@ -145,23 +145,23 @@ namespace e_apartments_app.db
             query = "insert into Dependents values ('D00002', 'cID0001', 'Sister', 'Jenna Seek');";
             runQuery(query);
 
-            query = "insert into Agreements values ('agg0001', 'A000112', 'cID0001', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 10000, 0);";
+            query = "insert into Agreements values ('agg0000001', 'A000112', 'cID0001', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 10000, 0);";
             runQuery(query);
-            query = "insert into Agreements values ('agg0002', 'A00042', 'cID0002', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 10000, 0);";
+            query = "insert into Agreements values ('agg0000002', 'A00042', 'cID0002', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 10000, 0);";
             runQuery(query);
-            query = "insert into Agreements values ('agg0003', 'A00032', 'cID0003', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 23000, 0);";
+            query = "insert into Agreements values ('ag000g0003', 'A00032', 'cID0003', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 23000, 0);";
             runQuery(query);
+            query = "insert into Agreements values ('agg0000005', 'A00032', 'cID0003', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 20000, 0);";
+            runQuery(query);
+
             query = "insert into Agreements values ('agg0005', 'A00032', 'cID0003', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 20000, 0);";
             runQuery(query);
 
-            query = "insert into Agreements values ('agg0005', 'A00032', 'cID0003', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 20000, 0);";
+            query = "insert into ExtentionRequests values ('E00003', 'agg0000001', 3, 1);";
             runQuery(query);
-
-            query = "insert into ExtentionRequests values ('E00003', 'agg0005', 3, 1);";
+            query = "insert into ExtentionRequests values ('E00004', 'agg0000002', 1, 0);";
             runQuery(query);
-            query = "insert into ExtentionRequests values ('E00004', 'agg0005', 1, 0);";
-            runQuery(query);
-            query = "insert into ExtentionRequests values ('E00005', 'agg0003', 1, 2);";
+            query = "insert into ExtentionRequests values ('E00005', 'agg0000001', 1, 2);";
             runQuery(query);
         }
 

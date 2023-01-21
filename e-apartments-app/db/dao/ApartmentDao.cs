@@ -50,6 +50,41 @@ namespace e_apartments_app.db.dao
              return list;
         }
 
+        public List<ApartmentModel> GetAllAvailable()
+        {
+            List<ApartmentModel> list = new List<ApartmentModel>();
+            try
+            {
+                DbController dbController = new DbController();
+                dbController.init();
+
+                SqlDataReader? readerAllData = dbController.selectData("SELECT * FROM Apartments where IfAvailable=1;");
+                dbController.init();
+                int i = 0;
+                while (readerAllData.Read())
+                {
+                    ApartmentModel apartmentModel = new ApartmentModel();
+                    apartmentModel.AID = readerAllData["aID"].ToString();
+                    apartmentModel.UnavailableReason = readerAllData["unavailableReason"].ToString();
+                    apartmentModel.ClsID = readerAllData["clsID"].ToString();
+                    apartmentModel.BID = readerAllData["bID"].ToString();
+                    apartmentModel.FloorNum = Convert.ToInt32(readerAllData["floorNum"]);
+                    apartmentModel.IfAvailable = Convert.ToInt32(readerAllData["IfAvailable"]);
+                    apartmentModel.CurrentOccupant = readerAllData["currentOccupant"].ToString();
+                    apartmentModel.IntDeposit = Convert.ToSingle(readerAllData["intDeposit"]);
+                    apartmentModel.Monthly = Convert.ToSingle(readerAllData["monthly"]);
+                    list.Add(apartmentModel);
+                    i += 1;
+                }
+                return list;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return list;
+        }
+
         public override ApartmentModel GetSingle(string id)
         {
             throw new NotImplementedException();
