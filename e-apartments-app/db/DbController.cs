@@ -145,13 +145,13 @@ namespace e_apartments_app.db
             query = "insert into Dependents values ('D00002', 'cID0001', 'Sister', 'Jenna Seek');";
             runQuery(query);
 
-            query = "insert into Agreements values ('agg0000001', 'A000112', 'cID0001', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 10000, 0);";
+            query = "insert into Agreements values ('agg0000001', 'A000112', 'cID0001', 'Friday, 29 May 2015 05:50', 'Wednesday, 16 November 2022 05:50', 1, 10000, 0);";
             runQuery(query);
-            query = "insert into Agreements values ('agg0000002', 'A00042', 'cID0002', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 10000, 0);";
+            query = "insert into Agreements values ('agg0000002', 'A00042', 'cID0002', 'Friday, 29 May 2015 05:50', 'Wednesday, 16 November 2022 05:50', 1, 10000, 0);";
             runQuery(query);
-            query = "insert into Agreements values ('ag000g0003', 'A00032', 'cID0003', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 23000, 0);";
+            query = "insert into Agreements values ('ag000g0003', 'A00032', 'cID0003', 'Friday, 29 May 2015 05:50', 'Wednesday, 16 November 2022 05:50', 1, 23000, 0);";
             runQuery(query);
-            query = "insert into Agreements values ('agg0000005', 'A00032', 'cID0003', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 20000, 0);";
+            query = "insert into Agreements values ('agg0000005', 'A00032', 'cID0003', 'Friday, 29 May 2015 05:50', 'Wednesday, 16 November 2022 05:50', 1, 20000, 0);";
             runQuery(query);
 
             query = "insert into Agreements values ('agg0005', 'A00032', 'cID0003', 'Friday, 29 May 2015 05:50', 'Friday, 30 May 2015 05:50', 1, 20000, 0);";

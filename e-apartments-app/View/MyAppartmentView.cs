@@ -1,6 +1,9 @@
 ﻿using e_apartments_app.db.dao;
 using e_apartments_app.db.Model;
+using e_apartments_app.util;
+using NPOI.SS.Formula.Functions;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,11 +44,21 @@ namespace e_apartments_app.View
         {
             ExtentionRequestsDao extentionRequestsDao = new ExtentionRequestsDao();
             ExtentionRequestsModel extention = new ExtentionRequestsModel();
-            extention.Accepted = 2;
-            extention.RequestedMonths = 3;
-            extention.AgreeID = agreementModel.AgreeID;
-            extention.ExtentionRequestsId = "EX00-" + Guid.NewGuid().ToString("N");
-            extentionRequestsDao.Add(extention);
+            DateTime enteredDateE = DateTime.Parse(agreementModel.EndDate);
+            var dateSpan = DateTimeSpan.CompareDates(enteredDateE, DateTime.Now);
+            var compare = DateTime.Compare(enteredDateE, DateTime.Now);
+
+            if(compare > 0 & dateSpan.Months > 0) {
+                extention.Accepted = 2;
+                extention.RequestedMonths = 3;
+                extention.AgreeID = agreementModel.AgreeID;
+                extention.ExtentionRequestsId = "EX00-" + Guid.NewGuid().ToString("N").Substring(10);
+                extentionRequestsDao.Add(extention);
+            }
+            else
+            {
+                MessageBox.Show("You can only make a extention request 2 months before lease expire.");
+            }
         }
     }
 }

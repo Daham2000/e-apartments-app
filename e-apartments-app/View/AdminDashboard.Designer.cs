@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.requestViewBtn = new System.Windows.Forms.Button();
             this.customerBtn = new System.Windows.Forms.Button();
             this.editClassBtn = new System.Windows.Forms.Button();
@@ -42,108 +41,143 @@
             this.apartmentListFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.refreshBtn = new System.Windows.Forms.Button();
-            this.reportBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.totalCustomers = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.apartmentListFlow.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(42, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 74);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(86)))), ((int)(((byte)(103)))));
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(47, 99);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 25);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Admin Dashboard";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(86)))), ((int)(((byte)(103)))));
-            this.panel1.Controls.Add(this.reportBtn);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(26)))), ((int)(((byte)(52)))));
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.requestViewBtn);
             this.panel1.Controls.Add(this.customerBtn);
             this.panel1.Controls.Add(this.editClassBtn);
             this.panel1.Controls.Add(this.leaseBtn);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.apartmentBtn);
+            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(26)))), ((int)(((byte)(52)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 840);
+            this.panel1.Size = new System.Drawing.Size(250, 975);
             this.panel1.TabIndex = 6;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(36)))), ((int)(((byte)(68)))));
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(1, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(249, 69);
+            this.panel2.TabIndex = 14;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(15, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 24);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "E-apartments";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // requestViewBtn
             // 
-            this.requestViewBtn.Location = new System.Drawing.Point(2, 378);
+            this.requestViewBtn.FlatAppearance.BorderSize = 0;
+            this.requestViewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.requestViewBtn.ForeColor = System.Drawing.Color.White;
+            this.requestViewBtn.Location = new System.Drawing.Point(0, 294);
             this.requestViewBtn.Name = "requestViewBtn";
             this.requestViewBtn.Size = new System.Drawing.Size(247, 29);
             this.requestViewBtn.TabIndex = 12;
-            this.requestViewBtn.Text = "Extention Requests";
+            this.requestViewBtn.Text = "   Extention Requests";
+            this.requestViewBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.requestViewBtn.UseVisualStyleBackColor = true;
             this.requestViewBtn.Click += new System.EventHandler(this.requestViewBtn_Click);
             // 
             // customerBtn
             // 
-            this.customerBtn.Location = new System.Drawing.Point(2, 326);
+            this.customerBtn.FlatAppearance.BorderSize = 0;
+            this.customerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customerBtn.ForeColor = System.Drawing.Color.White;
+            this.customerBtn.Location = new System.Drawing.Point(0, 241);
             this.customerBtn.Name = "customerBtn";
             this.customerBtn.Size = new System.Drawing.Size(247, 29);
             this.customerBtn.TabIndex = 11;
-            this.customerBtn.Text = "Customer Management";
+            this.customerBtn.Text = "   Customer Management";
+            this.customerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.customerBtn.UseVisualStyleBackColor = true;
             this.customerBtn.Click += new System.EventHandler(this.customerBtn_Click);
             // 
             // editClassBtn
             // 
-            this.editClassBtn.Location = new System.Drawing.Point(2, 272);
+            this.editClassBtn.FlatAppearance.BorderSize = 0;
+            this.editClassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editClassBtn.ForeColor = System.Drawing.Color.White;
+            this.editClassBtn.Location = new System.Drawing.Point(0, 188);
             this.editClassBtn.Name = "editClassBtn";
             this.editClassBtn.Size = new System.Drawing.Size(247, 29);
             this.editClassBtn.TabIndex = 10;
-            this.editClassBtn.Text = "Edit Class";
+            this.editClassBtn.Text = "   Edit Class";
+            this.editClassBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.editClassBtn.UseVisualStyleBackColor = true;
             this.editClassBtn.Click += new System.EventHandler(this.editClassBtn_Click);
             // 
             // leaseBtn
             // 
-            this.leaseBtn.Location = new System.Drawing.Point(2, 216);
+            this.leaseBtn.FlatAppearance.BorderSize = 0;
+            this.leaseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.leaseBtn.ForeColor = System.Drawing.Color.White;
+            this.leaseBtn.Location = new System.Drawing.Point(0, 134);
             this.leaseBtn.Name = "leaseBtn";
             this.leaseBtn.Size = new System.Drawing.Size(247, 29);
             this.leaseBtn.TabIndex = 9;
-            this.leaseBtn.Text = "Lease details";
+            this.leaseBtn.Text = "   Lease details";
+            this.leaseBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.leaseBtn.UseVisualStyleBackColor = true;
             this.leaseBtn.Click += new System.EventHandler(this.leaseBtn_Click);
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(86)))), ((int)(((byte)(103)))));
-            this.button2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button2.Location = new System.Drawing.Point(3, 770);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(26)))), ((int)(((byte)(52)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Honeydew;
+            this.button2.Location = new System.Drawing.Point(0, 335);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(247, 29);
             this.button2.TabIndex = 8;
-            this.button2.Text = "Logout";
+            this.button2.Text = "   Logout";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // apartmentBtn
             // 
-            this.apartmentBtn.Location = new System.Drawing.Point(2, 164);
+            this.apartmentBtn.FlatAppearance.BorderSize = 0;
+            this.apartmentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.apartmentBtn.ForeColor = System.Drawing.Color.White;
+            this.apartmentBtn.Location = new System.Drawing.Point(0, 82);
             this.apartmentBtn.Name = "apartmentBtn";
             this.apartmentBtn.Size = new System.Drawing.Size(247, 29);
             this.apartmentBtn.TabIndex = 7;
-            this.apartmentBtn.Text = "Apartment details";
+            this.apartmentBtn.Text = "   Apartment details";
+            this.apartmentBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.apartmentBtn.UseVisualStyleBackColor = true;
             this.apartmentBtn.Click += new System.EventHandler(this.apartmentBtn_Click);
             // 
@@ -151,20 +185,22 @@
             // 
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.titleLabel.Location = new System.Drawing.Point(262, 22);
+            this.titleLabel.Location = new System.Drawing.Point(271, 221);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(200, 31);
             this.titleLabel.TabIndex = 7;
             this.titleLabel.Text = "Apartment details";
+            this.titleLabel.Click += new System.EventHandler(this.titleLabel_Click);
             // 
             // apartmentListFlow
             // 
             this.apartmentListFlow.AutoScroll = true;
             this.apartmentListFlow.Controls.Add(this.flowLayoutPanel2);
-            this.apartmentListFlow.Location = new System.Drawing.Point(269, 69);
+            this.apartmentListFlow.Location = new System.Drawing.Point(278, 268);
             this.apartmentListFlow.Name = "apartmentListFlow";
-            this.apartmentListFlow.Size = new System.Drawing.Size(899, 727);
+            this.apartmentListFlow.Size = new System.Drawing.Size(994, 624);
             this.apartmentListFlow.TabIndex = 11;
+            this.apartmentListFlow.Paint += new System.Windows.Forms.PaintEventHandler(this.apartmentListFlow_Paint);
             // 
             // flowLayoutPanel2
             // 
@@ -175,9 +211,9 @@
             // 
             // refreshBtn
             // 
-            this.refreshBtn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.refreshBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
             this.refreshBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.refreshBtn.Location = new System.Drawing.Point(1074, 27);
+            this.refreshBtn.Location = new System.Drawing.Point(1178, 226);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(94, 29);
             this.refreshBtn.TabIndex = 12;
@@ -185,43 +221,127 @@
             this.refreshBtn.UseVisualStyleBackColor = false;
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
-            // reportBtn
+            // label2
             // 
-            this.reportBtn.Location = new System.Drawing.Point(2, 425);
-            this.reportBtn.Name = "reportBtn";
-            this.reportBtn.Size = new System.Drawing.Size(247, 29);
-            this.reportBtn.TabIndex = 13;
-            this.reportBtn.Text = "Check Reports";
-            this.reportBtn.UseVisualStyleBackColor = true;
-            this.reportBtn.Click += new System.EventHandler(this.reportBtn_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(272, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(129, 31);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Dashboard";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.totalCustomers);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Location = new System.Drawing.Point(278, 62);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(994, 135);
+            this.panel3.TabIndex = 14;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(549, 56);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 57);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "34";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label7.Location = new System.Drawing.Point(549, 31);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 25);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Num of Requests";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(248, 56);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 57);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "34";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label5.Location = new System.Drawing.Point(248, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(228, 25);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Total Available Apartment";
+            // 
+            // totalCustomers
+            // 
+            this.totalCustomers.AutoSize = true;
+            this.totalCustomers.Font = new System.Drawing.Font("Segoe UI Semibold", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.totalCustomers.ForeColor = System.Drawing.SystemColors.Control;
+            this.totalCustomers.Location = new System.Drawing.Point(22, 55);
+            this.totalCustomers.Name = "totalCustomers";
+            this.totalCustomers.Size = new System.Drawing.Size(72, 57);
+            this.totalCustomers.TabIndex = 1;
+            this.totalCustomers.Text = "34";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Location = new System.Drawing.Point(22, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(146, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Total Customers";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1194, 838);
+            this.ClientSize = new System.Drawing.Size(1284, 971);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.apartmentListFlow);
             this.Controls.Add(this.titleLabel);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Name = "AdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "E-appartments - Dashboard";
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.apartmentListFlow.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private PictureBox pictureBox1;
-        private Label label1;
         private Panel panel1;
         private Button leaseBtn;
         private Button button2;
@@ -233,6 +353,15 @@
         private Button refreshBtn;
         private Button customerBtn;
         private Button requestViewBtn;
-        private Button reportBtn;
+        private Label label2;
+        private Panel panel2;
+        private Label label1;
+        private Panel panel3;
+        private Label label6;
+        private Label label7;
+        private Label label4;
+        private Label label5;
+        private Label totalCustomers;
+        private Label label3;
     }
 }
