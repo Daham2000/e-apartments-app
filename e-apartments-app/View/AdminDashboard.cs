@@ -25,16 +25,25 @@ namespace e_apartments_app.View
         public AdminDashboard()
         {
             InitializeComponent();
+
+        }
+
+        private void AdminDashboard_Load(object sender, EventArgs e)
+        {
             appartmentClasses = appartmentClassDao.GetAll();
             customerModels = customerDao.GetAll();
             buildingModels = buildingDao.GetAll();
             agreementModels = agreementDao.GetAll();
             populateApartments();
-        }
-
-        private void AdminDashboard_Load(object sender, EventArgs e)
-        {
-
+            totalCustomers.Text = customerModels.Count.ToString();
+            appartmentsAvailable = apartmentDao.GetAllAvailable();
+            apartmentCount.Text = appartmentsAvailable.Count.ToString();
+            if (requestList.Count == 0)
+            {
+                requestList = extentionRequestsDao.GetAll();
+            }
+            List<ExtentionRequestsModel> list = requestList.Where(s => s.Accepted == 2).ToList();
+            requestLabel.Text = list.Count.ToString();
         }
 
         private void populateApartments()
@@ -109,7 +118,6 @@ namespace e_apartments_app.View
         {
             titleLabel.Text = "Lease Details";
             refreshBtn.Text = "Add Lease";
-            appartmentsAvailable = apartmentDao.GetAllAvailable();
             apartmentListFlow.Controls.Clear();
             if (agreementModels.Count == 0)
             {

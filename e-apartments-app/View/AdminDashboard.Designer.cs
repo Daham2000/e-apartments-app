@@ -43,9 +43,9 @@
             this.refreshBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.requestLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.apartmentCount = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.totalCustomers = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -235,9 +235,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
-            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.requestLabel);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.apartmentCount);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.totalCustomers);
             this.panel3.Controls.Add(this.label3);
@@ -247,16 +247,16 @@
             this.panel3.TabIndex = 14;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
-            // label6
+            // requestLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(549, 56);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 57);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "34";
+            this.requestLabel.AutoSize = true;
+            this.requestLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.requestLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.requestLabel.Location = new System.Drawing.Point(549, 56);
+            this.requestLabel.Name = "requestLabel";
+            this.requestLabel.Size = new System.Drawing.Size(72, 57);
+            this.requestLabel.TabIndex = 5;
+            this.requestLabel.Text = "34";
             // 
             // label7
             // 
@@ -269,17 +269,17 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "Num of Requests";
             // 
-            // label4
+            // apartmentCount
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(248, 56);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 57);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "34";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.apartmentCount.AutoSize = true;
+            this.apartmentCount.Font = new System.Drawing.Font("Segoe UI Semibold", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.apartmentCount.ForeColor = System.Drawing.SystemColors.Control;
+            this.apartmentCount.Location = new System.Drawing.Point(248, 56);
+            this.apartmentCount.Name = "apartmentCount";
+            this.apartmentCount.Size = new System.Drawing.Size(72, 57);
+            this.apartmentCount.TabIndex = 3;
+            this.apartmentCount.Text = "34";
+            this.apartmentCount.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -357,9 +357,9 @@
         private Panel panel2;
         private Label label1;
         private Panel panel3;
-        private Label label6;
+        private Label requestLabel;
         private Label label7;
-        private Label label4;
+        private Label apartmentCount;
         private Label label5;
         private Label totalCustomers;
         private Label label3;
