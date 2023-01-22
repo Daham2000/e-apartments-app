@@ -49,6 +49,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.totalCustomers = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.genarateReport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.apartmentListFlow.SuspendLayout();
@@ -70,7 +71,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 975);
             this.panel1.TabIndex = 6;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
@@ -79,9 +79,7 @@
             this.panel2.Location = new System.Drawing.Point(1, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(249, 69);
-            this.panel2.TabIndex = 14;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
+            this.panel2.TabIndex = 14;            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -92,7 +90,6 @@
             this.label1.Size = new System.Drawing.Size(150, 24);
             this.label1.TabIndex = 14;
             this.label1.Text = "E-apartments";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // requestViewBtn
             // 
@@ -190,7 +187,6 @@
             this.titleLabel.Size = new System.Drawing.Size(200, 31);
             this.titleLabel.TabIndex = 7;
             this.titleLabel.Text = "Apartment details";
-            this.titleLabel.Click += new System.EventHandler(this.titleLabel_Click);
             // 
             // apartmentListFlow
             // 
@@ -200,7 +196,6 @@
             this.apartmentListFlow.Name = "apartmentListFlow";
             this.apartmentListFlow.Size = new System.Drawing.Size(994, 624);
             this.apartmentListFlow.TabIndex = 11;
-            this.apartmentListFlow.Paint += new System.Windows.Forms.PaintEventHandler(this.apartmentListFlow_Paint);
             // 
             // flowLayoutPanel2
             // 
@@ -230,7 +225,6 @@
             this.label2.Size = new System.Drawing.Size(129, 31);
             this.label2.TabIndex = 13;
             this.label2.Text = "Dashboard";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel3
             // 
@@ -245,7 +239,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(994, 135);
             this.panel3.TabIndex = 14;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // requestLabel
             // 
@@ -279,7 +272,6 @@
             this.apartmentCount.Size = new System.Drawing.Size(72, 57);
             this.apartmentCount.TabIndex = 3;
             this.apartmentCount.Text = "34";
-            this.apartmentCount.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -313,13 +305,25 @@
             this.label3.Size = new System.Drawing.Size(146, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Total Customers";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // genarateReport
+            // 
+            this.genarateReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(134)))), ((int)(((byte)(255)))));
+            this.genarateReport.ForeColor = System.Drawing.SystemColors.Control;
+            this.genarateReport.Location = new System.Drawing.Point(1033, 226);
+            this.genarateReport.Name = "genarateReport";
+            this.genarateReport.Size = new System.Drawing.Size(139, 29);
+            this.genarateReport.TabIndex = 15;
+            this.genarateReport.Text = "Download Report";
+            this.genarateReport.UseVisualStyleBackColor = false;
+            this.genarateReport.Click += new System.EventHandler(this.genarateReport_Click);
             // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 971);
+            this.Controls.Add(this.genarateReport);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.refreshBtn);
@@ -363,5 +367,6 @@
         private Label label5;
         private Label totalCustomers;
         private Label label3;
+        private Button genarateReport;
     }
 }

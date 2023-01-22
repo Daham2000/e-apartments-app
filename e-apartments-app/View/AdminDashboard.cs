@@ -2,6 +2,11 @@
 using e_apartments_app.db.Model;
 using e_apartments_app.ui;
 using Microsoft.VisualBasic;
+using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf;
+using Syncfusion.Windows.Forms.PdfViewer;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 
 namespace e_apartments_app.View
 {
@@ -25,7 +30,6 @@ namespace e_apartments_app.View
         public AdminDashboard()
         {
             InitializeComponent();
-
         }
 
         private void AdminDashboard_Load(object sender, EventArgs e)
@@ -35,6 +39,7 @@ namespace e_apartments_app.View
             buildingModels = buildingDao.GetAll();
             agreementModels = agreementDao.GetAll();
             populateApartments();
+            genarateReport.Hide();
             totalCustomers.Text = customerModels.Count.ToString();
             appartmentsAvailable = apartmentDao.GetAllAvailable();
             apartmentCount.Text = appartmentsAvailable.Count.ToString();
@@ -118,6 +123,7 @@ namespace e_apartments_app.View
         {
             titleLabel.Text = "Lease Details";
             refreshBtn.Text = "Add Lease";
+            genarateReport.Hide();
             apartmentListFlow.Controls.Clear();
             if (agreementModels.Count == 0)
             {
@@ -139,6 +145,7 @@ namespace e_apartments_app.View
         {
             titleLabel.Text = "Apartment details";
             refreshBtn.Text = "Refresh";
+            genarateReport.Hide();
             apartmentListFlow.Controls.Clear();
             refreshBtn.Show();
             populateApartments();
@@ -148,6 +155,7 @@ namespace e_apartments_app.View
         {
             titleLabel.Text = "Edit Apartment Class Details";
             refreshBtn.Hide();
+            genarateReport.Hide();
             apartmentListFlow.Controls.Clear();
 
             if (appartmentClasses.Count == 0)
@@ -175,6 +183,7 @@ namespace e_apartments_app.View
         {
             titleLabel.Text = "Manage Customer Details";
             refreshBtn.Show();
+            genarateReport.Show();
             refreshBtn.Text = "Refresh";
             apartmentListFlow.Controls.Clear();
             if (dependentsModels.Count == 0)
@@ -198,6 +207,7 @@ namespace e_apartments_app.View
         {
             titleLabel.Text = "Lease Extention Requests";
             refreshBtn.Hide();
+            genarateReport.Hide();
             apartmentListFlow.Controls.Clear();
             try {
                 if (requestList.Count == 0)
@@ -229,61 +239,35 @@ namespace e_apartments_app.View
             this.Hide();
         }
 
-        private void reportBtn_Click(object sender, EventArgs e)
-        {
-            titleLabel.Text = "Admin Reports";
-            refreshBtn.Hide();
-            apartmentListFlow.Controls.Clear();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void genarateReport_Click(object sender, EventArgs e)
         {
 
-        }
+            using (SaveFileDialog sf = new SaveFileDialog() { Filter = "PDF file| *.pdf", ValidateNames = true})
+            {
+                if(sf.ShowDialog() == DialogResult.OK)
+                {
+                    Document document = new Document(PageSize.A4.Rotate());
+                    PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(sf.FileName, FileMode.Create));
+                    document.Open();
+                    
+                    foreach (CustomerModel model in customerModels)
+                    {
+                        document.Add(new Paragraph("CID: " +model.CID));
+                        document.Add(new Paragraph("Name: "+model.Name));
+                        document.Add(new Paragraph("User Name: " + model.Username));
+                        document.Add(new Paragraph("NIC: " + model.NIC1));
+                        document.Add(new Paragraph("Address: " + model.Address));
+                        document.Add(new Paragraph("Contact Number: " + model.ContactDetails));
+                        document.Add(new Paragraph("---------------------------------"));
+                        document.Add(new Paragraph("\n"));
+                    }
+                    document.Close();
+                    writer.Close();
+                }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+            }
 
-        }
-
-        private void titleLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void apartmentListFlow_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
+            MessageBox.Show("Downloaded...");
         }
     }
 }
